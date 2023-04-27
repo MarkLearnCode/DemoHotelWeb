@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* Navbar */
+nav {
+    height: 70px;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.container-fluid img {
+    height: 50px;
+    margin-left: 20px;
+}
+
+label {
+    color: rgb(140, 140, 140);
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 20px;
+}
+
+.container .row input {
+    color: rgb(89, 89, 89);
+    font-size: 14px;
+    width: 100%;
+    padding: 14px 8px;
+    line-height: 20px;
+}
+
+.btn-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(30, 159, 210);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 12px 24px;
+    line-height: 24px;
+    width: 100%;
+}
+
+.dropdown-menu a {
+    margin-top: 5px;
+    margin-left: 5px;
+    color: rgb(89, 89, 89);
+    line-height: 20px;
+}
+
+.dropdown-menu .fa-regular,
+.fa-solid {
+    float: left;
+    height: 20px;
+    width: 20px;
+
+
+}
+
+.dropdown-menu span {
+    padding-left: 10px;
+    height: 20px;
+    font-size: 14px;
+
+}
+
+/* 忘記密碼主頁 */
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url(../home1.jpg);
+    background-position: center;
+    background-size: cover;
+    margin-top: -50px;
+}
+.forget{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: rgba(255, 255, 255, .8);
+    border-radius: 20px;    
+    display: flex;    
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.forgetform{
+    display: flex; 
+    flex-direction:column ;
+    height: 500px;     
+    justify-content: space-evenly;
+    align-items: center;
+}
+h3{
+    font-family: none;
+    font-size: 2em;
+    color: black;
+    text-align:left ;
+}
+.forgetitem{
+    position: relative;
+    margin: 30px ;
+    width: 310px;
+    border-bottom: 3px solid rgba(159, 158, 158, 0.85);
+}
+.forgetitem label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: grey;
+    font-size: 1e m;
+    pointer-events: none;
+    transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+color: rgba(159, 158, 158, 0.85);
+}
+.forgetitem input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding:0 0 0 10px;
+    color:black;
+}
+.forgetitem small {
+    color: #e74c3c;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    visibility: hidden;
+}
+
+.forgetitem.error small {
+    visibility: visible;
+}
+.forgetother{
+    margin: -15px 0 15px ;
+    font-size: .9em;
+    color: rgb(60, 55, 55);
+    display: flex;
+    justify-content: space-between;  
+}
+.forgetother a{   
+    color: #8971eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+}
+.forgetother a:hover{
+    text-decoration: underline 2px;
+}
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: gray;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    margin: 30px 0;
+}
+
+/* Navbar */
+nav {
+    height: 70px;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.container-fluid img {
+    height: 50px;
+    margin-left: 20px;
+}
+
+label {
+    color: rgb(140, 140, 140);
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 20px;
+}
+
+.container .row input {
+    color: rgb(89, 89, 89);
+    font-size: 14px;
+    width: 100%;
+    padding: 14px 8px;
+    line-height: 20px;
+}
+
+.btn-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(30, 159, 210);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 12px 24px;
+    line-height: 24px;
+    width: 100%;
+}
+
+.dropdown-menu a {
+    margin-top: 5px;
+    margin-left: 5px;
+    color: rgb(89, 89, 89);
+    line-height: 20px;
+}
+
+.dropdown-menu .fa-regular,
+.fa-solid {
+    float: left;
+    height: 20px;
+    width: 20px;
+
+
+}
+
+.dropdown-menu span {
+    padding-left: 10px;
+    height: 20px;
+    font-size: 14px;
+
+}
+
+/* Footer */
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 20px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+    cursor: default;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+    cursor: default;
+}

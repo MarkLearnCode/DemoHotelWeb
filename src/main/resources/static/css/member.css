@@ -1,0 +1,491 @@
+ul{
+    list-style: none;
+}
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+
+/* Navbar */
+nav {
+    height: 70px;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.container-fluid img {
+    height: 50px;
+    margin-left: 20px;
+}
+
+label {
+    color: rgb(140, 140, 140);
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 20px;
+}
+
+.container .row input {
+    color: rgb(89, 89, 89);
+    font-size: 14px;
+    width: 100%;
+    padding: 14px 8px;
+    line-height: 20px;
+}
+
+.btn-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(30, 159, 210);
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 12px 24px;
+    line-height: 24px;
+    width: 100%;
+}
+
+.dropdown-menu a {
+    margin-top: 5px;
+    margin-left: 5px;
+    color: rgb(89, 89, 89);
+    line-height: 20px;
+}
+
+.dropdown-menu .fa-regular,
+.fa-solid {
+    float: left;
+    height: 20px;
+    width: 20px;
+
+
+}
+
+.dropdown-menu span {
+    padding-left: 10px;
+    height: 20px;
+    font-size: 14px;
+
+}
+
+
+/* 後台管理畫面 */
+.secondbox{
+    float: left;
+    /* position: relative; */
+    width: 100%;
+    height: 600px;
+    z-index: 1;
+    background-color: rgb(244, 242, 242);
+    margin-top: -50px;
+    
+    
+    
+}
+.mesbox{
+    width: 1000px;
+    margin: 0 auto;
+    /* background-color: aqua; */
+}
+.circle {
+    display: inline-block;
+    margin-top: 15px;
+    margin-left: 20px;
+    float: left;
+    width: 65px;
+    height:65px;
+    background-color: rgb(157, 245, 245);
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+  }
+.email{
+    position: relative;
+    font-size: 38px;
+    top:15px;
+    left:10px;
+    color:#676161;
+} 
+.lmsg{
+    /* position: relative; */
+    margin-top: 30px;
+    margin-left: 0px;
+    width:300px;
+    height: 100px;
+    background-color: #ffffff;
+}
+.lmsg01{
+    position:relative;
+    margin-top: 10px;
+    margin-left:30;
+    width:300px;
+    height: 350px;
+    background-color:#ffffff;
+}
+.lmsg01 ul{
+    list-style: none;
+}
+.lmsg01 li{
+    
+    padding-top: 15px;
+}
+.lmsg02{
+    position: absolute;
+  
+    top:auto;
+    margin-top: -460px;
+    margin-left: 310px;
+    
+    width:700px;
+    height: 500px;
+    background-color:#ffffff;
+}
+.lmsg02 h1{
+   text-align: center;
+}
+/* 新增飯店 */
+.lmsg02 .hotelAddView{
+    clear: both;
+    overflow: hidden;
+    display: grid;
+    text-align: center;
+    margin-top: 5px;
+    width: 700px;
+    height: 450px;   
+    box-shadow: 0px 5px 15px -5px rgb(188, 188, 187);
+    background-color: rgb(223, 222, 222);
+}
+
+.invalid-input {
+    border: 2px solid red;
+  }
+.addboxName ul{
+    list-style: none;
+}
+.addboxName li{
+    text-align:right;
+   padding: 13px 10px;
+}
+.lmsg02 .hotelAddView .addboxName{
+
+    /* float: left; */
+    position:absolute;
+    margin-top: 55px;
+    margin-left: 70px;  
+}
+
+.lmsg02 .hotelAddView p{
+    position:absolute;
+    color: #007bff;
+    margin-top: 15px;
+    margin-left: 95px;
+}
+
+.lmsg02 .hotelAddView select{
+    position: absolute;
+    margin-top: 10px;
+    left: 200px;
+    width: 100px;
+    height: 30px;
+}
+
+
+
+.addbox ul{
+    list-style: none;   
+}
+.addbox li{
+    position: relative;
+    bottom: 100px;
+    padding: 10px 10px;
+}
+.addbox{
+    float: left;
+    position: absolute;
+    top:213px;
+    left: 150px;
+    
+
+}
+.addbutton{
+   position: relative;
+   top:380px;
+   left: 100px;
+}
+
+td:first-child {
+    height: 20px;
+  }
+  /* 查詢飯店 */
+.lmsg02 .hotelFindView{
+    display: flex;
+    text-align: center;
+    margin-top: 5px;
+    width: 700px;
+    height: 450px;
+    box-shadow: 0px 5px 15px -5px rgb(188, 188, 187);
+    background-color: rgb(223, 222, 222);
+}
+.lmsg02 .hotelFindView table{
+    font-size: 5px;
+}
+
+.titleh4{
+    margin-left: 250px;
+}
+.span1 {
+   
+   
+    font-size: 20px;
+   
+}
+
+.titleSpan {
+   
+    font-size: 20px;
+  }
+
+/*修改飯店資訊 */
+.hotelUpdate{
+    display: flex;
+    text-align: center;
+    margin-top: 5px;
+    width: 700px;
+    height: 450px;
+    box-shadow: 0px 5px 15px -5px rgb(188, 188, 187);
+    background-color: rgb(223, 222, 222);
+}
+
+.btid{
+    position: relative;
+    left: 124px;
+    top:-30px;
+}
+
+
+.UpboxName ul{
+    list-style: none;
+    
+}
+
+.UpboxName .upname{
+    position: absolute;
+    top:3px;
+}
+.UpboxName li{
+    text-align:right;
+   padding: 13px 10px;
+   left: -200px;
+}
+.lmsg02 .hotelUpdate .UpboxName{
+    float: left;
+    position:relative;
+    left: 75px;
+    top:30px;  
+}
+
+
+
+.Upbox ul{
+    list-style: none;  
+    text-align: left; 
+}
+.Upbox li{
+    /* position: relative; */
+    bottom: 100px;
+    padding: 10px 10px;
+}
+.Upbox{
+    float: left;
+    position:absolute;
+    bottom: 50px;
+    left: 150px;
+    
+
+}
+
+
+.Upbutton{
+   position: relative;
+   top:380px;
+   left: 100px;
+}
+
+/* 更新房況 */
+.roomUpdate{
+    display: flex;
+    text-align: center;
+    margin-top: 5px;
+    width: 700px;
+    height: 450px;
+    box-shadow: 0px 5px 15px -5px rgb(188, 188, 187);
+    background-color: rgb(223, 222, 222);
+}
+.roomUpdate_1{
+    left: -50px;
+    top:30px;
+    position: relative;
+}
+
+.linebar{
+    position: absolute;
+    top:200px;
+    left:180px;
+    transform: rotate(90deg);
+}
+.linebarName{
+    position: absolute;
+    left: 100px;
+    top:139px
+}
+.linebarName li{
+    padding: 20px;
+}
+.bar {
+
+    display: inline-block;
+    width: 30px;
+    height: 100px;
+    margin-right: 30px;
+    background-color: #007bff;
+  }
+  
+
+
+/* 訂單查詢 */
+.memberView{
+    display: flex;
+    text-align: center;
+    margin-top: 5px;
+    width: 700px;
+    height: 450px;
+    box-shadow: 0px 5px 15px -5px rgb(188, 188, 187);
+    background-color: rgb(123, 115, 232);
+}
+.memberSearch{
+    position: relative;
+    top:35px;
+}
+.memberBox1{
+    position: relative;
+    top:47px;
+    right: 150px;
+}
+.memberBox1 li{ 
+    padding: 15px 0px;
+    
+}
+.memberBox2{
+    position: absolute;
+    top: 150px;;
+    right: 220px;
+}
+.memberBox2 li{
+    padding: 12px 0px;
+}
+
+  /* 查詢會員 */
+  .lmsg02 .memberView{
+    display: flex;
+    text-align: center;
+    margin-top: 5px;
+    width: 700px;
+    height: 450px;
+    box-shadow: 0px 5px 15px -5px rgb(188, 188, 187);
+    background-color: rgb(223, 222, 222);
+}
+.lmsg02 .memberView table{
+    font-size: 5px;
+}
+
+.titleh4{
+    margin-left: 250px;
+}
+.span1 {
+   
+   
+    font-size: 20px;
+   
+}
+
+.MtitleSpan {
+   
+    font-size: 26px;
+  }
+
+
+/* Footer */
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+    margin-top: 100px;
+
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 20px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+    cursor: default;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+    cursor: default;
+}

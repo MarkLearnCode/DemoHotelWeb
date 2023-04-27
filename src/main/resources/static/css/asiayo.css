@@ -1,0 +1,343 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 1.5rem;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+.nav a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+.nav a:hover{
+    font-size: 1.75rem;
+   
+    color: aquamarine;
+    transition: 0.2s ease;
+}
+
+
+.nav{
+    height: 64px;
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: space-between;
+    width: 95%;
+
+}
+.nav-left{
+    display: flex;
+}
+.select{
+    font-size: 1rem;
+}
+#area{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    border-radius: 10%;
+    border-color: rgb(15, 201, 201);
+    border-width: 0.1rem;
+}
+.login{
+    /* margin-left: 10%; */
+    margin: 1rem;
+}
+.runImg img{
+    height: 290px;
+}
+
+.show{
+    display: flex;
+    flex-flow: row wrap;
+    width: calc(100% + 20px);
+    margin: -10px -10px -30px ;
+}
+.show .local{
+    display: block ;
+    margin: 1.5rem 1.5rem 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 100%;
+}
+
+.pic{
+    display: flex;
+    flex-flow: column wrap;
+    box-sizing: border-box;
+    height: 415px;
+    width: 75vw;
+    margin: 0rem 0rem 2rem 2rem;
+    align-items: center;
+    
+}
+.pic .pics{
+    border: 0.5rem solid #0000;
+}
+.north{
+    /* padding-right: 2.5rem;
+    position: relative; */
+    position: relative;
+    width: 30%;
+    height: 98%;
+    cursor: pointer;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("https://img.asiayo.com/static/images/index/Tw_taipei_desktop@3x.jpg");
+    transition: 0.5s;
+}
+.north:hover{
+    /* background-size:400px 500px;  */
+    width: 35%;
+}
+.north .text{
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0.1rem 0.1rem #020202 ;
+}
+.middle{
+    /* padding-right: 2.5rem; */
+    position: relative;
+    text-align: center;
+    
+}
+.picBox{
+    height: 180px;
+    width: 30vw;
+    max-width: 100%; /* 确保不超出容器的宽度 */
+    cursor: pointer;
+    transition: 0.5s;
+}
+.picBox:hover{
+    width: 45vw;
+}
+/* .picBox img{
+    height: 100%;
+    width: 100%;
+} */
+.picBox .img{
+    /* width: 35vh;
+    max-width: 50%;
+  height: auto;
+     */
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+}
+.middle .text{
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0.1rem 0.1rem #020202 ;
+}
+
+/*  */
+.south{
+    /* padding-right: 2.5rem;
+    margin-top: .5rem; */
+    position: relative;
+}
+.south img{
+    width: 35vh;
+}
+.south .text{
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0.1rem 0.1rem #020202 ;
+}
+/*  */
+.east{
+    /* padding-right: 2.5rem; */
+    position: relative;
+}
+.east img{
+    width: 35vw;
+}
+.east .text{
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0.1rem 0.1rem #020202 ;
+}
+/*  */
+.island{
+    /* padding-right: 2.5rem;
+    margin-top: .5rem; */
+    position: relative;
+}
+.island img{
+    width: 35vh;
+}
+.island .text{
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    color: aliceblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0.1rem 0.1rem #020202 ;
+}
+
+.info{
+    margin-top: 2rem;
+    margin-bottom: 100px;
+    display: flex;
+    height: 20vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.infoMsg{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.infoCards{
+    display: flex;
+    justify-content: space-between;
+}
+.infoCard{
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    width: 20vw;
+    height: 15vh;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+.infoIcon img{
+    width: 80px;
+    height: 80px;
+}
+.infoTitel{
+    display: flex;
+    color: rgb(38, 38, 38);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    margin-bottom: 8px;
+}
+.infoText{
+    display: flex;
+    color: rgb(38, 38, 38);
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background-color: #24262b;
+    padding: 70px 0;
+
+}
+
+.footer-col {
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    font-size: 20px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+    cursor: default;
+}
+
+.footer-col .social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+    cursor: default;
+}
+
+
+
+
+@media screen and (max-width: 700px) {
+    .nav{
+        /* flex-direction: column;         */
+    }
+    .nav span{
+        display: none;
+    }
+    .nav a{
+        font-size: 1rem;
+    }
+    #area{
+        font-size: 1rem;
+    }
+    .nav img{
+        width: 17vh;
+    }
+}
+

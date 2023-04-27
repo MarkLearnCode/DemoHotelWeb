@@ -1,0 +1,96 @@
+
+.hotelCards{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+}
+.hotelCard{
+    margin: 1rem;
+    padding: 0.3rem;
+    border: 0.1px solid rgba(100, 148, 237, 0.162);
+    cursor: pointer;
+    
+}
+.hotelInfo{
+    display: flex;
+    margin: 0.2rem;
+    flex-direction: column;
+}
+.hotelTitle{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.hotelDsc{
+    font-size: 1.25rem;
+}
+.hotelPrice{
+    text-align: end;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0f62a5;
+}
+.hotelPic{
+    width: 300px;
+}
+
+/* hotelInfo */
+.hotelMsg h1{
+    padding-left: 0.5rem;
+}
+.addressMsg{
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.addressMsg img{
+    margin-right: 0.3rem;
+}
+
+
+/* 
+.hotelPicCards{
+    display: flex;
+}
+
+.hotelPicCards .hotelPic1{
+    position: relative;
+    flex: 0.57432 1 0%;
+    height: 400px;
+    margin-right: 8px;
+}
+.hotelPic1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    cursor: pointer;
+}
+
+
+.hotelPicAndMap{
+    display: flex;
+    flex: 0.42568 1 0%;
+    flex-wrap: wrap;
+    height: 400px;
+}
+.hotelPicAndMap .hotelPic2{
+    position: relative;
+    flex: 1 1 0%;
+    margin-right: 8px;
+    height: 50%;
+    box-sizing: border-box;
+    border-top: 8px solid transparent;
+}
+.hotelPicAndMap img{
+    height: 50%;
+}
+
+.hotelMap iframe{
+    flex: 1 1 0%;
+    height: 50%;
+    margin-right: 0px;
+    box-sizing: border-box;
+    border-top: 8px solid transparent;
+    cursor: pointer;
+} */

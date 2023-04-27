@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmegaTrip | 後台管理</title>
+    <link rel="stylesheet" href="./css/member.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <!-- FontAwesome 連結 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/member.css" />
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <body ng-app="myApp" ng-controller="siteCtrl">
+    <!-- 導航開始 -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded"
+    >
+      <div class="container-fluid">
+        <!-- 品牌Logo -->
+        <div>
+          <a class="navbar-brand" href="index.html"
+            ><img src="./images/logo.png" alt=""
+          /></a>
+        </div>
+      </div>
+    </nav>
+    <!-- 第二列 -->
+    <div class="secondbox">
+      <div class="mesbox">
+        <div class="lmsg">
+          <span class="circle"></span>
+          <p class="email">管理員</p>
+        </div>
+
+        <div class="lmsg01">
+          <ul>
+            <li>
+              <button
+                type="button"
+                class="addBt btn btn-outline-primary"
+                id="addBt"
+              >
+                新增飯店
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="FindBt btn btn-outline-primary"
+                id="FindBt"
+                ng-click="refresh()"
+              >
+                查詢飯店
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="UpdateBt btn btn-outline-primary"
+                id="UpdateBt"
+                ng-click="showupdata()"
+              >
+                修改飯店資訊
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="RoomBt btn btn-outline-primary"
+                id="RoomBt"
+              >
+                房況資訊
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="memberBt btn btn-outline-primary"
+                id="memberBt"
+                ng-click="refreshM()"
+              >
+                (訂單)&(會員)查詢
+              </button>
+            </li>
+            <li>
+              <button
+                class="logout btn btn-outline-primary"
+                ng-click="logout()"
+              >
+                登出
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lmsg02">
+          <h1>後台管理</h1>
+
+          <!-- 新增飯店 -->
+          <div class="hotelAddView" id="hotelAddView">
+            <div class="select">
+              <p>請先選擇區域:</p>
+              <select ng-model="area">
+                <option value="" selected="true" disabled="disabled">
+                  選擇地區
+                </option>
+                <option value="north">北部</option>
+                <option value="middle">中部</option>
+                <option value="south">南部</option>
+                <option value="huadong">花東</option>
+                <option value="island">外島</option>
+              </select>
+            </div>
+            <div class="addboxName">
+              <ul>
+                <li><span class="s1">飯店名稱:</span></li>
+                <li><span class="s2">電話:</span></li>
+                <li><span class="s3">Email:</span></li>
+                <li><span class="s4">城市:</span></li>
+                <li><span class="s4">地址:</span></li>
+                <li><span class="s5">地圖:</span></li>
+              </ul>
+            </div>
+            <div class="addbox">
+              <ul>
+                <li>
+                  <input
+                    type="text"
+                    ng-model="hotelName"
+                    placeholder="福容飯店"
+                    ng-disabled="!area"
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    ng-model="phone"
+                    placeholder="096355599"
+                    ng-disabled="!area"
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    ng-model="hotelemail"
+                    placeholder="xxx@gmail.com"
+                    ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
+                    ng-class="{ 'invalid-input': myForm.hotelemail.$invalid && !myForm.hotelemail.$pristine }"
+                    ng-disabled="!area"
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    ng-model="city"
+                    placeholder="花蓮"
+                    ng-disabled="!area"
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    ng-model="address"
+                    placeholder="請輸入住址"
+                    ng-disabled="!area"
+                  />
+                </li>
+                <li>
+                  <input
+                    type="text"
+                    ng-model="hotelMap"
+                    placeholder="地圖"
+                    ng-disabled="!area"
+                  />
+                </li>
+              </ul>
+            </div>
+
+            <div class="addbutton">
+              <button
+                class="btn btn-info col-2"
+                ng-click="addhotel(hotelName,phone,hotelemail,city,address,area,hotelMap)"
+                ng-disabled="!area || !hotelName || !phone || !hotelemail || !city || !address || !hotelMap"
+              >
+                新增
+              </button>
+            </div>
+          </div>
+          <!-- 搜尋飯店 -->
+          <div class="hotelFindView" id="hotelFindView">
+            <div class="serchView">
+              <table
+                class="table table-striped table-hover table-bordered border-primary"
+              >
+                <tr>
+                  <form ng-submit="search()">
+                    <span class="titleSpan text-center">飯店查詢: </span>
+                    <input
+                      type="text"
+                      id="id"
+                      ng-model="searchTerm"
+                      placeholder="輸入電話|飯店名稱|地區"
+                    />
+                    <button type="submit" class="search btn-info col-2">
+                      查詢
+                    </button>
+                  </form>
+                </tr>
+                <tr>
+                  <td>id</td>
+                  <td>飯店名稱</td>
+                  <td>地區</td>
+                  <td>電話</td>
+                  <td>email</td>
+                  <td>地址</td>
+                </tr>
+                <tr
+                  ng-repeat="x in filteredHotels = (hotel | filter:searchTerm) | limitTo: pageSize : (currentPage * pageSize)"
+                  ng-click="showupdata(x)"
+                >
+                  <td>{{x.id}}</td>
+                  <td>{{x.hotelName}}</td>
+                  <td>{{x.city}}</td>
+                  <td>{{x.phone}}</td>
+                  <td>{{x.hotelemail}}</td>
+                  <td>{{x.address}}</td>
+                </tr>
+                <tr ng-if="filteredHotels.length === 0">
+                  <td colspan="6">No matching results</td>
+                </tr>
+                <tr
+                  ng-repeat-end
+                  ng-if="($index+1) % pageSize == 0 && ($index+1) != hotel.length"
+                ></tr>
+              </table>
+              <div>
+                <button
+                  ng-disabled="currentPage == 0"
+                  ng-click="currentPage=currentPage-1"
+                >
+                  Previous
+                </button>
+                <button
+                  ng-disabled="(currentPage + 1) * pageSize >= filteredHotels.length"
+                  ng-click="currentPage=currentPage+1"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 修改飯店資訊 -->
+          <div class="hotelUpdate" id="hotelUpdate">
+            <div class="UpboxName">
+              <div class="btid">
+                <input
+                  type="text"
+                  placeholder="輸入id"
+                  ng-model="id"
+                  id="uid"
+                />
+                <button id="searchBtn" ng-click="updateID()">查詢</button>
+              </div>
+
+              <ul class="upname">
+                <li><span class="s1">飯店名稱:</span></li>
+                <li><span class="s2">電話:</span></li>
+                <li><span class="s3">Email:</span></li>
+                <li><span class="s4">城市:</span></li>
+                <li><span class="s4">地址:</span></li>
+                <li><span class="s5">地圖:</span></li>
+                <li><span class="s5">地區:</span></li>
+              </ul>
+            </div>
+            <div class="Upbox">
+              <ul>
+                <li><input type="text" ng-model="x.hotelName" /></li>
+                <li><input type="text" ng-model="x.phone" /></li>
+                <li><input type="text" ng-model="x.hotelemail" /></li>
+                <li><input type="text" ng-model="x.city" /></li>
+                <li><input type="text" ng-model="x.address" /></li>
+                <li><input type="text" ng-model="x.hotelMap" /></li>
+                <li>
+                  <select ng-model="x.area" ng-disabled="true">
+                    <option value="north" ng-selected="x.area === 'north'">
+                      北部
+                    </option>
+                    <option value="middle" ng-selected="x.area === 'middle'">
+                      中部
+                    </option>
+                    <option value="south" ng-selected="x.area === 'south'">
+                      南部
+                    </option>
+                    <option value="huadong" ng-selected="x.area === 'huadong'">
+                      花東
+                    </option>
+                    <option value="island" ng-selected="x.area === 'island'">
+                      外島
+                    </option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+
+            <div class="Upbutton">
+              <button
+                type="submit"
+                class="btn btn-info col-2"
+                ng-click="savehotel(x.hotelName,x.phone,x.hotelemail,x.city,x.address,x.area,x.hotelMap)"
+              >
+                修改
+              </button>
+            </div>
+          </div>
+          <!-- 房況更新-->
+          <div class="roomUpdate" id="roomUpdate">
+            <div class="roomUpdate_1">
+              <span>輸入飯店名稱:</span>
+              <input
+                type="text"
+                id="inHotelName"
+                placeholder="{{x.hotelName}}"
+                ng-model="shotelName"
+              />
+              <button ng-click="roomstatus()">查詢</button>
+            </div>
+
+            <div class="linebar">
+              <div
+                class="bar"
+                ng-style="{'height': Rst.single * 30 + 'px'}"
+              ></div>
+              <div
+                class="bar"
+                ng-style="{'height': Rst.double * 30 + 'px'}"
+              ></div>
+              <div
+                class="bar"
+                ng-style="{'height': Rst.quad * 30 + 'px'}"
+              ></div>
+            </div>
+            <div class="linebarName">
+              <ul>
+                <li>單人房 <span>{{Rst.single}}</span>:</li>
+                <li>雙人房 <span>{{Rst.double}}</span>:</li>
+                <li>四人房 <span>{{Rst.quad}}</span>:</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 訂單查詢 -->
+          <div class="memberView" id="memberView">
+            <div class="MserchView" id="MserchView">
+              <table
+                class="table table-striped table-hover table-bordered border-primary"
+              >
+                <tr>
+                  <form ng-submit="searchM()">
+                    <span class="MtitleSpan text-center">訂單查詢:</span>
+                    <input
+                      type="text"
+                      id="id"
+                      ng-model="MsearchTerm"
+                      placeholder="請輸入email或 點擊 選單"
+                    />
+                    <button type="submit" class="search">查詢</button>
+                  </form>
+                </tr>
+                <tr>
+                  <td>id</td>
+                  <td>email</td>
+                  <td>密碼</td>
+                  <td>姓名</td>
+                  <td>電話</td>
+                  <td>地址</td>
+                </tr>
+                <tr
+                  ng-repeat="x in filteredM = (webmember | filter:MsearchTerm) | limitTo: pageSize : (currentPage * pageSize)"
+                  ng-click="showDetails(x)"
+                >
+                  <td>{{x.id}}</td>
+                  <td>{{x.email}}</td>
+                  <td>{{x.password}}</td>
+                  <td>{{x.name}}</td>
+                  <td>{{x.phone}}</td>
+                  <td>{{x.address}}</td>
+                </tr>
+                <tr ng-if="filteredM.length === 0">
+                  <td colspan="6">No matching results</td>
+                </tr>
+                <tr
+                  ng-repeat-end
+                  ng-if="($index+1) % pageSize == 0 && ($index+1) != webmember.length"
+                ></tr>
+              </table>
+              <div>
+                <button
+                  ng-disabled="currentPage == 0"
+                  ng-click="currentPage=currentPage-1"
+                >
+                  Previous
+                </button>
+                <button
+                  ng-disabled="(currentPage + 1) * pageSize >= filteredM.length"
+                  ng-click="currentPage=currentPage+1"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+            <!--點擊切換個別資料-->
+            <div class="RoserchView" id="RoserchView">
+              <table
+                class="table table-striped table-hover table-bordered border-primary"
+              >
+                <tr>
+                  <button type="submit" class="search" ng-click="backMV()">
+                    返回訂單
+                  </button>
+                </tr>
+                <tr>
+                  <td>id</td>
+                  <td>訂單編號</td>
+                  <td>飯店名稱</td>
+                  <td>房間</td>
+                  <td>訂房日期</td>
+                  <td>總價</td>
+                  <td>備註</td>
+                </tr>
+                <tr
+                  ng-repeat="x in Rofiltered = (order | filter:RosearchTerm) | limitTo: pageSize : (currentPage * pageSize)"
+                >
+                  <td>{{x.id}}</td>
+                  <td>{{x.orderNo}}</td>
+                  <td>{{x.hotelName}}</td>
+                  <td>{{x.roomQty}}</td>
+                  <td>{{x.orderTime}}</td>
+                  <td>{{x.ttlAmt}}</td>
+                  <td>{{x.note}}</td>
+                </tr>
+                <tr ng-if="Rofiltered.length === 0">
+                  <td colspan="6">No matching results</td>
+                </tr>
+                <tr
+                  ng-repeat-end
+                  ng-if="($index+1) % pageSize == 0 && ($index+1) != order.length"
+                ></tr>
+              </table>
+              <div>
+                <button
+                  ng-disabled="currentPage == 0"
+                  ng-click="currentPage=currentPage-1"
+                >
+                  Previous
+                </button>
+                <button
+                  ng-disabled="(currentPage + 1) * pageSize >= Rofiltered.length"
+                  ng-click="currentPage=currentPage+1"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>關於我們</h4>
+            <ul>
+              <li><a href="#">工作機會</a></li>
+              <li><a href="#">合作提案</a></li>
+              <li><a href="#">認識 OmegaTrip</a></li>
+              <li><a href="#">常見問題</a></li>
+              <li><a href="#">聯繫我們</a></li>
+            </ul>
+          </div>
+
+          <br />
+          <div class="footer-col">
+            <h4>客戶服務</h4>
+            <ul>
+              <li><a href="#">週一 ~ 週五 09:00 ~ 22:00 (UTC+8)</a></li>
+              <li><a href="#">週六 / 日及連續假日 12:00 ~ 18:00 (UTC+8)</a></li>
+              <li><a href="#">電話：+886-2-7755-7755</a></li>
+              <li><a href="#">傳真：+886-2-2784-7755</a></li>
+              <li><a href="#">信箱：customer_tw@OmegaTrip.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>OmegaTrip</h4>
+            <ul>
+              <li><a href="#">歐米茄旅行社股份有限公司</a></li>
+              <li><a href="#">台北市中正區公園路20號</a></li>
+              <li><a href="#">代表人：吳永豐</a></li>
+              <li><a href="#">統一編號：89898867</a></li>
+              <li><a href="#">交觀甲830400號</a></li>
+              <li><a href="#">品保協會 北9478</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      //
+
+      const buttons = document.querySelectorAll(
+        ".addBt,.FindBt,.UpdateBt,.RoomBt,.memberBt"
+      );
+      const divs = document.querySelectorAll(
+        ".hotelAddView, .hotelFindView, .hotelUpdate,.roomUpdate, .memberView"
+      );
+
+      const search = document.querySelectorAll(".search");
+      const FindBt = document.getElementById("FindBt");
+      const serchView = document.getElementsByClassName("serchView");
+      const serchId = document.getElementsByClassName("serchId");
+
+      // 左邊按鈕切換
+      for (let j = 1; j < divs.length; j++) {
+        divs[j].style.display = "none";
+      }
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          for (let j = 0; j < divs.length; j++) {
+            if (divs[j] !== divs[i]) {
+              divs[j].style.display = "none";
+            } else {
+              divs[j].style.display = "block";
+            }
+          }
+        });
+      }
+
+      //
+      var app = angular.module("myApp", []);
+
+      app.controller("siteCtrl", function ($scope, $http) {
+        $scope.searchTerm = "";
+        $scope.currentPage = 0;
+        $scope.pageSize = 4;
+
+        //新增飯店
+        $scope.addhotel = function (n, p, h, c, r, a, m) {
+          if (a == null) {
+            alert("請選擇地區");
+          } else {
+            // alert('add');
+            var method = "Post";
+            var url = "http://localhost:8080/api/addhotel";
+            $scope.hotel = {
+              hotelName: n,
+              phone: p,
+              hotelemail: h,
+              city: c,
+              address: r,
+              area: a,
+              hotelMap: m,
+            };
+
+            // alert(JSON.stringify($scope.hotel));
+            $http({
+              method: method,
+              url: url,
+              data: angular.toJson($scope.hotel),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }).then(
+              function (response) {
+                // 新增成功
+                alert("新增成功");
+              },
+              function (response) {
+                // 新增失敗
+                alert("新增失敗");
+              }
+            );
+          }
+        };
+
+        //抓取全部的飯店資料
+
+        $scope.refresh = function () {
+          $http({
+            method: "GET",
+            url: "http://localhost:8080/api/memberView",
+          }).then(
+            function successCallback(response) {
+              $scope.hotel = response.data.hotel;
+            },
+            function errorCallback(response) {
+              // handle error
+            }
+          );
+
+          $scope.search = function () {
+            // reset current page to 0
+            $scope.currentPage = 0;
+          };
+
+          $scope.getPager = function () {
+            var pages = [];
+            var totalPages = Math.ceil(
+              $scope.filteredHotels.length / $scope.pageSize
+            );
+            for (var i = 0; i < totalPages; i++) {
+              pages.push(i);
+            }
+            return pages;
+          };
+        };
+
+        //更新飯店
+        $scope.showupdata = function (x) {
+          var id = x.id;
+          var hotelName = x.hotelName;
+          alert("選擇:" + x.hotelName);
+          $http({
+            method: "GET",
+            url: "http://localhost:8080/api/updateID/" + id,
+          }).then(
+            function (response) {
+              $scope.x = response.data;
+            },
+            function (error) {
+              console.log("An error occurred: " + error.statusText);
+            }
+          );
+
+          $http({
+            method: "GET",
+            url: "http://localhost:8080/api/x/" + hotelName,
+          }).then(
+            function (response) {
+              $scope.Rst = response.data;
+            },
+            function (error) {
+              console.log("An error occurred: " + error.statusText);
+            }
+          );
+        };
+
+        $scope.updateID = function () {
+          var id = $scope.id;
+          alert(id);
+          $http({
+            method: "GET",
+            url: "http://localhost:8080/api/updateID/" + id,
+          }).then(
+            function (response) {
+              // 當成功得到 response 時，將回傳的資料存到 $scope.data 變數中
+              $scope.x = response.data;
+              // 在 console 中顯示回傳的資料
+              console.log($scope.data);
+            },
+            function (error) {
+              // 當發生錯誤時，在 console 中顯示錯誤訊息
+              console.log("An error occurred: " + error.statusText);
+            }
+          );
+        };
+
+        // 回傳修正後資料
+        $scope.savehotel = function (n, p, h, c, r, a, m) {
+          var id = $scope.id;
+          $scope.hotel = {
+            hotelName: n,
+            phone: p,
+            hotelemail: h,
+            city: c,
+            address: r,
+            area: a,
+            hotelMap: m,
+          };
+
+          alert(JSON.stringify($scope.hotel));
+          $http({
+            method: "Post",
+            url: "http://localhost:8080/api/updateID/" + id,
+            data: angular.toJson($scope.hotel),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }).then(_success, _error);
+        };
+
+        //查詢飯店房間狀態
+        $scope.roomstatus = function () {
+          var hotelName = $scope.shotelName;
+
+          // alert(hotelName);
+          $http({
+            method: "GET",
+            url: "http://localhost:8080/api/x/" + hotelName,
+          }).then(
+            function (response) {
+              // 當成功得到 response 時，將回傳的資料存到 $scope.data 變數中
+              $scope.Rst = response.data;
+              // 在 console 中顯示回傳的資料
+              console.log($scope.data);
+              // alert(JSON.stringify($scope.Rst));
+            },
+            function (error) {
+              // 當發生錯誤時，在 console 中顯示錯誤訊息
+              console.log("An error occurred: " + error.statusText);
+            }
+          );
+        };
+
+        //會員資料 查詢
+        $scope.MsearchTerm = "";
+        $scope.McurrentPage = 0;
+        $scope.MpageSize = 4;
+
+        $scope.refreshM = function () {
+          var element = document.getElementById("MserchView");
+          element.style.display = "block";
+          var Rvdiv = document.getElementById("RoserchView");
+          Rvdiv.style.display = "none";
+          $http({
+            method: "GET",
+            url: "http://localhost:8080/api/wmember",
+          }).then(
+            function successCallback(response) {
+              $scope.webmember = response.data.webmember;
+            },
+            function errorCallback(response) {
+              // handle error
+            }
+          );
+
+          $scope.searchM = function () {
+            // reset current page to 0
+            $scope.McurrentPage = 0;
+          };
+
+          $scope.getPagerM = function () {
+            var pages = [];
+            var totalPages = Math.ceil(
+              $scope.filteredM.length / $scope.MpageSize
+            );
+            for (var i = 0; i < totalPages; i++) {
+              pages.push(i);
+            }
+            return pages;
+          };
+        };
+
+        //顯示個筆資料詳情
+        $scope.RosearchTerm = "";
+        $scope.RocurrentPage = 0;
+        $scope.RopageSize = 4;
+
+        $scope.showDetails = function (x) {
+          var element = document.getElementById("MserchView");
+          element.style.display = "none";
+          var Rvdiv = document.getElementById("RoserchView");
+          Rvdiv.style.display = "block";
+
+          // 將詳細資料放到 $scope 中
+          alert("帳號:" + JSON.stringify(x.email));
+          // $scope.selectedMember = x;
+          var element = document.getElementById("MserchView");
+          element.style.display = "none";
+
+          $http({
+            method: "GET",
+            url: "http://localhost:8080/api/roomorder/" + x.email,
+          }).then(
+            function successCallback(response) {
+              $scope.order = response.data.order;
+            },
+            function errorCallback(response) {
+              // handle error
+            }
+          );
+
+          $scope.Rosearch = function () {
+            // reset current page to 0
+            $scope.RocurrentPage = 0;
+          };
+
+          $scope.getPagerRo = function () {
+            var pages = [];
+            var totalPages = Math.ceil(
+              $scope.Rofiltered.length / $scope.RopageSize
+            );
+            for (var i = 0; i < totalPages; i++) {
+              pages.push(i);
+            }
+            return pages;
+          };
+        };
+
+        $scope.backMV = function () {
+          alert("返回訂單查詢");
+          var element = document.getElementById("MserchView");
+          element.style.display = "block";
+          var Rvdiv = document.getElementById("RoserchView");
+          Rvdiv.style.display = "none";
+        };
+
+        $scope.logout = function () {
+          localStorage.setItem("user", "");
+          window.location.href = "./index.html";
+        };
+      });
+    </script>
+  </body>
+</html>

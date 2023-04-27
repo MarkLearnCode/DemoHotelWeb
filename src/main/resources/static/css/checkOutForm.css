@@ -1,0 +1,413 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+/* Navbar */
+nav {
+  height: 70px;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.container-fluid img {
+  height: 50px;
+  margin-left: 20px;
+}
+
+label {
+  color: rgb(140, 140, 140);
+  font-size: 14px;
+  margin-bottom: 8px;
+  line-height: 20px;
+}
+
+.container .row input {
+  color: rgb(89, 89, 89);
+  font-size: 14px;
+  width: 100%;
+  padding: 14px 8px;
+  line-height: 20px;
+}
+
+.btn-primary {
+  color: rgb(255, 255, 255);
+  background-color: rgb(30, 159, 210);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 12px 24px;
+  line-height: 24px;
+  width: 100%;
+  
+}
+
+
+
+.dropdown-menu a {
+  margin-top: 5px;
+  margin-left: 5px;
+  color: rgb(89, 89, 89);
+  line-height: 20px;
+}
+
+.dropdown-menu .fa-regular,
+.fa-solid {
+  float: left;
+  height: 20px;
+  width: 20px;
+
+
+}
+
+.dropdown-menu span {
+  padding-left: 10px;
+  height: 20px;
+  font-size: 14px;
+
+}
+
+/* 訂房主畫面 */
+main {
+  width: 100%;
+  display: flex;
+  background-color: oldlace;
+  margin-top: -50px;
+}
+main section.left {
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 35%;
+}
+main section.left-top {
+  margin-left: 4rem;
+  background-color: white;
+  border-radius: 10px;
+}
+main section.left-top .hotelType {
+  margin-top: 1.5rem;
+  margin-left: 1.25rem;
+}
+main section.left-top .hotelType h2 {
+  font-weight: bolder;
+}
+main section.left-top .hotelType p {
+  font-size: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+main section.left-mid {
+  margin-left: 4rem;
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 10px;
+}
+main section.left-mid .roomData {
+  margin: 1.5rem 1.25rem 1.5rem 1.25rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+main section.left-mid .roomData h3 {
+  font-weight: bolder;
+}
+main section.left-mid .date {
+  display: flex;
+  justify-content: space-between;
+}
+main section.left-mid .dateInfo {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bolder;
+}
+main section.left-mid .time {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bolder;
+}
+main section.left-mid .StayDays {
+  display: flex;
+  justify-content: space-between;
+}
+main section.left-mid .Room {
+  display: flex;
+  justify-content: space-between;
+}
+main section.left-mid .totalGuest {
+  display: flex;
+  justify-content: space-between;
+}
+main section.left-mid .checkInDateInfo {
+  font-size: 1.5rem;
+}
+main section.left-mid .checkOutDateInfo {
+  font-size: 1.5rem;
+}
+main section.left-mid .checkInTime {
+  font-size: 1.25rem;
+}
+main section.left-mid .checkOutTime {
+  font-size: 1.25rem;
+}
+main section.left-down {
+  margin-left: 4rem;
+  margin-top: 2rem;
+  background-color: white;
+  border-radius: 10px;
+}
+main section.left-down .priceData {
+  margin: 1.5rem 1.25rem 1.5rem 1.25rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+main section.left-down .priceData h3 {
+  font-weight: bolder;
+}
+main section.left-down .price {
+  display: flex;
+  justify-content: space-between;
+}
+main section.left-down .stayDays {
+  display: flex;
+  justify-content: space-between;
+}
+main section.left-down .checkoutPrice {
+  display: flex;
+  justify-content: space-between;
+}
+main section.left-down .totalPrice {
+  font-size: 1.35rem;
+  font-weight: bolder;
+  color: red;
+}
+main section.left-down .allprice {
+  font-size: 1.35rem;
+  font-weight: bolder;
+  color: red;
+}
+main section.right {
+  flex-direction: column;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-right: 4rem;
+  width: 65%;
+}
+main section.right section.right-top {
+  margin-left: 3rem;
+  background-color: white;
+  border-radius: 10px;
+}
+main section.right section.right-top .memberData {
+  margin-right: 1.25rem;
+  margin-left: 1.25rem;
+  padding-top: 1.5rem;
+}
+main section.right section.right-top .memberData h3 {
+  font-weight: bolder;
+}
+main section.right section.right-top .page2 {
+  display: none;
+}
+main section.right section.right-top .page3 {
+  display: none;
+}
+main section.right section.right-top .cardData {
+  margin-right: 1.25rem;
+  margin-left: 1.25rem;
+  padding-top: 1.5rem;
+}
+main section.right section.right-top .cardData h3 {
+  font-weight: bolder;
+}
+main section.right section.right-top .form-group {
+  margin: 1.5rem 1.25rem 1.5rem 1.25rem;
+  padding-bottom: 1.5rem;
+}
+main section.right section.right-top .finishData {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+main section.right section.right-top .finishData h3 {
+  color: crimson;
+  text-align: center;
+}
+main section.right section.right-top .finishData p {
+  text-align: center;
+}
+main section.right section.right-top .finishData h5 {
+  text-align: center;
+}
+main section.right .Button {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: right;
+}
+main section.right .nextButton {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  padding: 11px 24px;
+  background-color: rgb(30, 159, 210);
+  border-color: rgb(30, 159, 210);
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+main section.right .checkButton {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: right;
+}
+main section.right .payButton {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  padding: 11px 24px;
+  background-color: rgb(30, 159, 210);
+  border-color: rgb(30, 159, 210);
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+main section.right .returnButton {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  margin-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: right;
+}
+main section.right .indexButton {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  padding: 11px 24px;
+  background-color: rgb(30, 159, 210);
+  border-color: rgb(30, 159, 210);
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+main section.right .indexButton a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+/* Footer */
+.footer {
+  background-color: #24262b;
+  padding: 70px 0;
+
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.footer-col h4 {
+  font-size: 20px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 14px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+  cursor: default;
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+  cursor: default;
+}
+
+
+
+/*# sourceMappingURL=style.css.map */
+@media screen and (max-width: 700px) {
+  main section.left-down .checkoutPrice{
+    display: flex;
+    flex-direction: column;
+  }
+
+  main section.left-down .price{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    color: brown;
+  }
+  main section.left-down .stayDays{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    color: brown;
+  }
+  main section.left-down .allprice{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    color: brown;
+  }
+}
+#navDropdown {
+    margin-left: 1050px;
+}
+
+
+
+

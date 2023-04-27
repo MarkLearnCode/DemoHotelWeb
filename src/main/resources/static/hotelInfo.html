@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmegeTrip | 飯店介紹</title>
+    <link rel="stylesheet" href="./css/hotelInfo.css" />
+    <link rel="stylesheet" href="./css/asiayo.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.5/viewer.min.js"
+      integrity="sha512-i5q29evO2Z4FHGCO+d5VLrwgre/l+vaud5qsVqQbPXvHmD9obORDrPIGFpP2+ep+HY+z41kAmVFRHqQAjSROmA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.10.5/viewer.css"
+      integrity="sha512-c7kgo7PyRiLnl7mPdTDaH0dUhJMpij4aXRMOHmXaFCu96jInpKc8sZ2U6lby3+mOpLSSlAndRtH6dIonO9qVEQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav">
+        <div style="padding-top: 10px">
+          <a href="index.html"
+            ><img src="images/logo.png" alt="logo" width="138"
+          /></a>
+        </div>
+        <div></div>
+        <div class="nav-left">
+          <div class="select">
+            <span>快速索引:</span>
+            <select name="" id="area" onchange="getArea()">
+              <option value="home"><a href="/home.html">依地區選擇</a></option>
+              <option value="taipei"><a href="/home.html">home</a></option>
+            </select>
+          </div>
+          <div class="login">
+            <a id="navLogo" href="./login.html">登入/註冊</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section>
+      <div class="hotelMsg">
+        <h1 id="hotelName"></h1>
+        <div class="addressMsg">
+          <img
+            src="./img/icons8-address-50.png"
+            alt="https://icons8.com Icons8"
+            width="30px"
+          />
+          <address id="hotelAddress"></address>
+        </div>
+      </div>
+
+      <div class="hotelPicCards">
+        <div class="hotelPic1">
+          <img id="hotelImg1" src="" alt="" />
+        </div>
+        <div class="hotelPicAndMap">
+          <img id="hotelImg2" src="" alt="" />
+          <div class="hotelPics">
+            <img id="hotelImg3" src="" alt="" />
+          </div>
+          <div class="hotelMap" id="hotelMap"></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <hr />
+      <div class="container shadow min-vh-10 min-vw-100 py-2">
+        <h2>請選擇住宿時間</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-sm-6" id="checkIn">
+            <label for="startDate">入住日期</label>
+            <input id="startDate" class="form-control" type="date" />
+            <span id="startDateSelected"></span>
+          </div>
+          <div
+            class="col-lg-3 col-sm-6"
+            id="checkOut"
+            style="pointer-events: none; opacity: 0.5"
+          >
+            <label for="endDate">退房日期</label>
+            <input id="endDate" class="form-control" type="date" />
+            <span id="endDateSelected"></span>
+          </div>
+        </div>
+      </div>
+
+      <h1>房型</h1>
+      <div class="roomInfo">
+        <div class="roomPics">
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/1room/1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/1room/2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/1room/3.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="roomTexts">
+          <div class="roomTextH1">單人房</div>
+          <div class="roomTextH1 price">
+            <span>$2000/day</span>
+            <span id="sroom">剩餘房數</span>
+          </div>
+          <div class="roomText">基本入住人數：1</div>
+          <div class="roomText">獨立房間</div>
+          <div class="roomText">小型雙人床</div>
+          <div class="roomText">6 平方公尺</div>
+          <div class="roomText">禁菸房</div>
+          <div class="roomText">(房間內) 專屬衛浴</div>
+        </div>
+        <div class="bookingBtn"><button id="s">訂房</button></div>
+      </div>
+      <div class="roomInfo">
+        <div class="roomPics">
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/2room/1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/2room/2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/2room/3.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="roomTexts">
+          <div class="roomTextH1">雙人房</div>
+          <div class="roomTextH1 price">
+            <span>$4000/day</span> <span id="droom">剩餘房數</span>
+          </div>
+          <div class="roomText">基本入住人數：2</div>
+          <div class="roomText">獨立房間</div>
+          <div class="roomText">標準雙人床</div>
+          <div class="roomText">8 平方公尺</div>
+          <div class="roomText">禁菸房</div>
+          <div class="roomText">(房間內) 專屬衛浴</div>
+        </div>
+        <div class="bookingBtn"><button id="d">訂房</button></div>
+      </div>
+      <div class="roomInfo">
+        <div class="roomPics">
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/4room/1.jpg"
+              alt=""
+            />
+          </div>
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/4room/2.jpg"
+              alt=""
+            />
+          </div>
+          <div class="roomPic">
+            <img
+              src="http://localhost:8080/hotelpics/pics/4room/3.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <div class="roomTexts">
+          <div class="roomTextH1">四人房</div>
+          <div class="roomTextH1 price">
+            <span>$6000/day</span><span id="qroom">剩餘房數</span>
+          </div>
+          <div class="roomText">基本入住人數：4</div>
+          <div class="roomText">獨立房間</div>
+          <div class="roomText">標準雙人床 X 2</div>
+          <div class="roomText">14 平方公尺</div>
+          <div class="roomText">禁菸房</div>
+          <div class="roomText">(房間內) 專屬衛浴</div>
+        </div>
+        <div class="bookingBtn"><button id="q">訂房</button></div>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let hotelNo = localStorage.getItem("hotelNo");
+      console.log(hotelNo);
+      let hotelName = document.getElementById("hotelName");
+      let hotelImg1 = document.getElementById("hotelImg1");
+      let hotelAddress = document.getElementById("hotelAddress");
+      let hotelImg2 = document.getElementById("hotelImg2");
+      let hotelImg3 = document.getElementById("hotelImg3");
+      let hotelMap = document.getElementById("hotelMap");
+      let sroom = document.getElementById("sroom");
+      let droom = document.getElementById("droom");
+      let qroom = document.getElementById("qroom");
+      let btnS = document.getElementById("s");
+      let btnD = document.getElementById("d");
+      let btnQ = document.getElementById("q");
+      let alroomno = "";
+
+      let checkIn = document.getElementById("checkIn");
+      let checkOut = document.getElementById("checkOut");
+
+      $.get(`http://localhost:8080/api/hoetl/${hotelNo}`, (data) => {
+        // console.log(data);
+        // hotel = data;
+        hotelName.innerText = data.hotelName;
+        hotelAddress.innerText = data.address;
+        hotelImg1.setAttribute("src", data.pics[0]);
+        localStorage.setItem("hotelImg", data.pics[0]);
+        hotelImg2.setAttribute("src", data.pics[1]);
+        hotelImg3.setAttribute("src", data.pics[2]);
+        hotelMap.innerHTML = data.hotelMap;
+        localStorage.setItem("alroomno", "");
+        localStorage.setItem("startDate", "");
+        localStorage.setItem("endDateVal", "");
+        localStorage.setItem("days", "");
+        localStorage.setItem("price", "");
+        localStorage.setItem("totalPrice", "");
+        localStorage.setItem("person", "");
+        localStorage.setItem("hotelName", "");
+        localStorage.setItem("bedType", "");
+        localStorage.setItem("roomType", "");
+      });
+      $.get(`http://localhost:8080/api/takeRoominfo/${hotelNo}`, (data) => {
+        // console.log(data);
+        // hotel = data;
+        sroom.innerText = sroom.innerText + data[0].roomqty;
+        droom.innerText = droom.innerText + data[1].roomqty;
+        qroom.innerText = qroom.innerText + data[2].roomqty;
+        console.log(data);
+      });
+
+      btnS.addEventListener("click", () => {
+        // alroomno = localStorage.getItem(hotelNo) + btnS.getAttribute("id");
+        alroomno = hotelNo + btnS.getAttribute("id");
+        localStorage.setItem("alroomno", alroomno);
+        localStorage.setItem("price", "2000");
+        let totalPrice = localStorage.getItem("days") * 2000;
+        localStorage.setItem("totalPrice", totalPrice);
+        localStorage.setItem("person", "1");
+        localStorage.setItem("hotelName", hotelName.innerText);
+        localStorage.setItem("bedType", "單人房");
+        localStorage.setItem("roomType", alroomno);
+        console.log(alroomno);
+        if (localStorage.getItem("days") == "") {
+          alert("請選擇住宿時間");
+        } else {
+          window.location.href = "./checkOutForm.html";
+        }
+        // console.log(totalPrice);
+      });
+      btnD.addEventListener("click", () => {
+        // alroomno = localStorage.getItem(hotelNo) + btnS.getAttribute("id");
+        alroomno = hotelNo + btnD.getAttribute("id");
+        localStorage.setItem("alroomno", alroomno);
+        localStorage.setItem("price", "4000");
+        let totalPrice = localStorage.getItem("days") * 4000;
+        localStorage.setItem("totalPrice", totalPrice);
+        localStorage.setItem("person", "2");
+        localStorage.setItem("hotelName", hotelName.innerText);
+        localStorage.setItem("bedType", "雙人房");
+        if (localStorage.getItem("days") == "") {
+          alert("請選擇住宿時間");
+        } else {
+          window.location.href = "./checkOutForm.html";
+        }
+      });
+      btnQ.addEventListener("click", () => {
+        // alroomno = localStorage.getItem(hotelNo) + btnS.getAttribute("id");
+        alroomno = hotelNo + btnQ.getAttribute("id");
+        localStorage.setItem("alroomno", alroomno);
+        localStorage.setItem("price", "6000");
+        let totalPrice = localStorage.getItem("days") * 6000;
+        localStorage.setItem("totalPrice", totalPrice);
+        localStorage.setItem("person", "4");
+        localStorage.setItem("hotelName", hotelName.innerText);
+        localStorage.setItem("bedType", "四人房");
+        if (localStorage.getItem("days") == "") {
+          alert("請選擇住宿時間");
+        } else {
+          window.location.href = "./checkOutForm.html";
+        }
+      });
+
+      // console.log("hotel = " + hotel);
+
+      //取得元素
+      let startDate = document.getElementById("startDate");
+      let endDate = document.getElementById("endDate");
+      //宣告變數
+      let date1;
+      let date2;
+      //take nowDate
+      let nowDate = new Date();
+      console.log(nowDate);
+
+      //直接禁止選取今天之前，但此CODE沒用 改寫判斷
+      // $(function () {
+      //   $("#startDate").datepicker({
+      //     startDate: new Date(),
+      //   });
+      // });
+
+      //創建元素startDate Listener
+      startDate.addEventListener("change", (e) => {
+        let startDateVal = e.target.value;
+        //取得值 可以使用console.log查看
+        //指派選取時間至外部變數
+        date1 = new Date(startDateVal);
+        // console.log("date1 = " + date1);
+        // console.log("nowDate = " + nowDate);
+        // console.log(nowDate.getDate() == date1.getDate());
+        // console.log(nowDate.getSeconds);
+
+        // 簡易判斷
+        if (
+          date1.getFullYear() < nowDate.getFullYear() ||
+          (date1.getFullYear() === nowDate.getFullYear() &&
+            date1.getMonth() < nowDate.getMonth()) ||
+          (date1.getMonth() === nowDate.getMonth() &&
+            date1.getDate() <= nowDate.getDate())
+        ) {
+          document.getElementById("startDateSelected").innerText =
+            "入住日需在今日之後";
+
+          // if (date1.getDate() <= nowDate.getDate()) {
+          //   document.getElementById("startDateSelected").innerText =
+          //     "入住日需在今日之後";
+        } else {
+          document.getElementById("startDateSelected").innerText =
+            "入住日 : " + startDateVal;
+          localStorage.setItem("startDate", startDateVal);
+          checkOut.setAttribute("style", "");
+        }
+      });
+      console.log(date1);
+      //創建元素endDate Listener
+      endDate.addEventListener("change", (e) => {
+        let endDateVal = e.target.value;
+        //指派選取時間至外部變數
+        date2 = new Date(endDateVal);
+        //將日期轉為number日期格式 因為是number即可運算 取得相隔日期
+        // let days = date2.getDate() - date1.getDate();
+        let timeDiff = date2.getTime() - date1.getTime();
+        let days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+        console.log(days);
+        // 簡易判斷
+        if (days > 0) {
+          document.getElementById("endDateSelected").innerText =
+            "退房日 : " + endDateVal + "  共" + days + "天";
+          localStorage.setItem("endDateVal", endDateVal);
+          localStorage.setItem("days", days);
+        } else {
+          document.getElementById("endDateSelected").innerText =
+            "請確認退房日期";
+        }
+      });
+      window.addEventListener("load", () => {
+        if (localStorage.getItem("user")) {
+          let navLogo = document.getElementById("navLogo");
+          navLogo.innerText = "會員頁面";
+          navLogo.setAttribute("href", "orders.html");
+        }
+        if (localStorage.getItem("user") == "admin@admin.com") {
+          let navLogo = document.getElementById("navLogo");
+          navLogo.innerText = "管理頁面";
+          navLogo.setAttribute("href", "memberView.html");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+.signup{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-left: 1rem;
+    
+}
+.signup h1{
+    margin: 0 1rem 1rem 0;
+}
+.signupitem{
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: center;
+    
+}
+.signup .signupitem label{
+    width: 110px;
+}
+.signup .signupitem input{
+    width: 250px;
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+.signup button{
+    width: 150px;
+    border-radius: 25px;
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1.5rem 0;
+}

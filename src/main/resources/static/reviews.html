@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- FontAwesome kit-->
+    <script
+      src="https://kit.fontawesome.com/69bf931e43.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>OmegaTrip | 我的評論</title>
+    <meta charset="UTF-8" />
+    <!-- 響應式網站 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Boostrap 連結 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- CSS連結 -->
+    <link rel="stylesheet" href="css/reviews.css" />
+    <!-- FontAwesome 連結 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded"
+    >
+      <div class="container-fluid">
+        <!-- 品牌Logo -->
+        <div>
+          <a class="navbar-brand" href="index.html"
+            ><img src="images/logo.png" alt=""
+          /></a>
+        </div>
+
+        <!--  列出到右邊  -->
+        <div class="collapse navbar-collapse" id="navDropdown">
+          <ul class="navbar-nav navbar-brand ms-auto">
+            <!--  下拉式選單 -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle navbar-brand"
+                data-bs-toggle="dropdown"
+                href="#"
+                ><i class="fa-solid fa-user" style="color: #1e9fd2"></i
+              ></a>
+
+              <!-- 下拉式選單選項 Dropdown items  -->
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="orders.html"
+                  ><i class="fa-regular fa-file-lines"></i
+                  ><span>我的訂單</span></a
+                >
+                <a class="dropdown-item" href="reviews.html"
+                  ><i class="fa-regular fa-star"></i><span>我的評論</span>
+                </a>
+                <a class="dropdown-item" href="favorite.html"
+                  ><i class="fa-regular fa-heart"></i><span>收藏清單</span></a
+                >
+                <a class="dropdown-item" href="account.html"
+                  ><i class="fa-solid fa-address-card"></i
+                  ><span>個人資料</span></a
+                >
+                <a class="dropdown-item" href="management.html"
+                  ><i class="fa-regular fa-lightbulb"></i
+                  ><span>行銷訊息管理</span></a
+                >
+                <a>
+                  <hr class="dropdown-divider" />
+                </a>
+                <a id="logOut" class="dropdown-item" href="index.html"
+                  ><span>登出</span></a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+    <div class="container-all">
+      <!-- 左邊 -->
+      <div class="container-left">
+        <!-- 導覽列 -->
+        <nav id="sidebar">
+          <!-- List列表 -->
+          <ul class="list-unstyled">
+            <br />
+            <h1>
+              <i class="fa-solid fa-user" style="color: #1e9fd2"></i
+              >&emsp;會員帳號
+            </h1>
+
+            <hr />
+            <li>
+              <a href="orders.html"
+                ><i class="fa-regular fa-file-lines"></i><span>我的訂單</span>
+              </a>
+            </li>
+            <li>
+              <a href="reviews.html"
+                ><i class="fa-regular fa-star"></i><span>我的評論</span>
+              </a>
+            </li>
+            <li>
+              <a href="favorite.html"
+                ><i class="fa-regular fa-heart"></i><span>收藏清單</span>
+              </a>
+            </li>
+            <li>
+              <a href="account.html"
+                ><i class="fa-solid fa-address-card"></i><span>個人資料</span>
+              </a>
+            </li>
+            <li>
+              <a href="management.html"
+                ><i class="fa-regular fa-lightbulb"></i
+                ><span>行銷訊息管理</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- 右邊 -->
+      <div class="container-right">
+        <div class="container-fluid">
+          <h1>我的評論</h1>
+          <div class="nav nav-tabs">
+            <!-- 按鈕1 -->
+            <button
+              class="nav-link active"
+              data-bs-toggle="tab"
+              data-bs-target="#menu1"
+              aria-selected="true"
+            >
+              待評論
+            </button>
+            <!-- 按鈕2 -->
+            <button
+              class="nav-link"
+              data-bs-toggle="tab"
+              data-bs-target="#menu2"
+              aria-selected="false"
+            >
+              已評論
+            </button>
+          </div>
+
+          <!-- 第二部分:標籤分頁的內容 -->
+          <div class="tab-content">
+            <!-- 第1個內容 -->
+            <div class="tab-pane fade show active" id="menu1">
+              <img src="images/review_empty.svg" alt="" />
+              <p>目前沒有待評論的訂單</p>
+              <p>立即訂房！評論即送下次訂房優惠碼喔！</p>
+            </div>
+            <!-- 第2個內容 -->
+            <div class="tab-pane fade" id="menu2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>關於我們</h4>
+            <ul>
+              <li><a href="#">工作機會</a></li>
+              <li><a href="#">合作提案</a></li>
+              <li><a href="#">認識 OmegaTrip</a></li>
+              <li><a href="#">常見問題</a></li>
+              <li><a href="#">聯繫我們</a></li>
+            </ul>
+          </div>
+
+          <br />
+          <div class="footer-col">
+            <h4>客戶服務</h4>
+            <ul>
+              <li><a href="#">週一 ~ 週五 09:00 ~ 22:00 (UTC+8)</a></li>
+              <li><a href="#">週六 / 日及連續假日 12:00 ~ 18:00 (UTC+8)</a></li>
+              <li><a href="#">電話：+886-2-7755-7755</a></li>
+              <li><a href="#">傳真：+886-2-2784-7755</a></li>
+              <li><a href="#">信箱：customer_tw@OmegaTrip.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>OmegaTrip</h4>
+            <ul>
+              <li><a href="#">歐米茄旅行社股份有限公司</a></li>
+              <li><a href="#">台北市中正區公園路20號</a></li>
+              <li><a href="#">代表人：吳永豐</a></li>
+              <li><a href="#">統一編號：89898867</a></li>
+              <li><a href="#">交觀甲830400號</a></li>
+              <li><a href="#">品保協會 北9478</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      let logOut = document.getElementById("logOut");
+      logOut.addEventListener("click", () => {
+        localStorage.setItem("user", "");
+        window.location.href = "./index.html";
+      });
+    </script>
+  </body>
+</html>

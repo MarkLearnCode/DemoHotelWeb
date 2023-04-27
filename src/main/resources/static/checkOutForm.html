@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>OmegaTrip | 訂房確認</title>
+    <meta name="robots" content="index, follow" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <!-- FontAwesome 連結 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!--Google Font Setting-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap"
+      rel="stylesheet"
+    />
+    <!--在不同的瀏覽器中呈現一致的外觀-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <!--自己寫的css表-->
+    <link rel="stylesheet" href="./css/checkOutForm.css" />
+  </head>
+  <body>
+    
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded"
+    >
+      <div class="container-fluid">
+        <!-- 品牌Logo -->
+        <div>
+          <a class="navbar-brand" href="index.html"
+            ><img src="images/logo.png" alt=""
+          /></a>
+        </div>
+
+        <!--  列出到右邊  -->
+        <div class="collapse navbar-collapse" id="navDropdown">
+          <ul class="navbar-nav navbar-brand ms-auto">
+            <!--  下拉式選單 -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle navbar-brand"
+                data-bs-toggle="dropdown"
+                href="#"
+                ><i class="fa-solid fa-user" style="color: #1e9fd2"></i
+              ></a>
+
+              <!-- 下拉式選單選項 Dropdown items  -->
+              <div class="dropdown-menu dropdown-menu-end">
+                <a class="dropdown-item" href="orders.html"
+                  ><i class="fa-regular fa-file-lines"></i
+                  ><span>我的訂單</span></a
+                >
+                <a class="dropdown-item" href="reviews.html"
+                  ><i class="fa-regular fa-star"></i><span>我的評論</span>
+                </a>
+                <a class="dropdown-item" href="favorite.html"
+                  ><i class="fa-regular fa-heart"></i><span>收藏清單</span></a
+                >
+                <a class="dropdown-item" href="account.html"
+                  ><i class="fa-solid fa-address-card"></i
+                  ><span>個人資料</span></a
+                >
+                <a class="dropdown-item" href="management.html"
+                  ><i class="fa-regular fa-lightbulb"></i
+                  ><span>行銷訊息管理</span></a
+                >
+                <a>
+                  <hr class="dropdown-divider" />
+                </a>
+                <a id="logOut" class="dropdown-item" href="index.html"
+                  ><span>登出</span></a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--主要內容-->
+    <main>
+      <!--左半部區塊-->
+      <section class="left">
+        <section class="left-top">
+          <div class="roomPic">
+            <img
+              id="hotelImg"
+              src="..."
+              alt="roomPicture"
+              width="421px"
+              height="220px"
+            />
+            <div class="hotelType">
+              <h2 class="hotel"><span id="hotelName">璞草行旅</span></h2>
+              <br />
+              <p class="room"><span id="roomType">標準雙人房</span></p>
+            </div>
+          </div>
+        </section>
+
+        <section class="left-mid">
+          <div class="roomData">
+            <h3>訂房資訊</h3>
+            <hr />
+            <div class="date">
+              <div class="checkInDate">入住日期</div>
+              <div class="checkOutDate">退房日期</div>
+            </div>
+            <br />
+
+            <div class="dateInfo">
+              <div class="checkInDateInfo">
+                <span id="chkInDate">2023/05/24</span>
+              </div>
+              <div class="checkOutDateInfo">
+                <span id="chkOutDate">2023/05/26</span>
+              </div>
+            </div>
+
+            <div class="time">
+              <div class="checkInTime">15:00</div>
+              <div class="checkOutTime">11:00</div>
+            </div>
+            <br />
+
+            <div class="StayDays">
+              <div class="days">入住天數</div>
+              <div class="nights"><span id="days">2</span> 晚</div>
+            </div>
+            <br />
+
+            <div class="Room">
+              <div class="rooms">總房數</div>
+              <div class="room"><span id="roomQty">1</span>房</div>
+            </div>
+            <br />
+
+            <div class="totalGuest">
+              <div class="guests">總人數</div>
+              <div class="guest"><span id="chkNo">2</span>人</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="left-down">
+          <div class="priceData">
+            <h3>房價明細</h3>
+            <hr />
+
+            <div class="price">
+              <div class="rmPrice">房間價格</div>
+              <div class="price-night">
+                TWD <span id="roomPrice">3000</span> / 晚
+              </div>
+            </div>
+            <br />
+
+            <div class="stayDays">
+              <div class="days">入住天數</div>
+              <div class="nights"><span id="LOS">2</span>晚</div>
+            </div>
+            <br />
+
+            <div class="checkoutPrice">
+              <div class="totalPrice">總金額</div>
+              <div class="allprice">TWD <span id="ttlAmt">6000</span></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!--右半部區塊-->
+      <section class="right">
+        <section class="right-top">
+          <!--入住旅客資訊 page1 div-->
+          <div class="page1">
+            <div class="memberData">
+              <h3>入住旅客資訊</h3>
+            </div>
+            <!--Bootstrap Form-->
+            <div>
+              <form action="" method="GET">
+                <div class="form-group">
+                  <label for="name">姓名</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    name="InputName"
+                    placeholder="請輸入入住旅客的姓名"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="tele">手機號碼</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="tele"
+                    name="InputTel"
+                    placeholder="請輸入入住旅客的手機號碼"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">電子郵件</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="InputEmail"
+                    placeholder="ex:name@gmail.com"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="address">地址</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    name="InputAddress"
+                    placeholder="請輸入入住旅客的地址"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="request">特殊需求（選填）</label>
+                  <textarea
+                    class="form-control"
+                    id="request"
+                    name="InputRequest"
+                    rows="10"
+                    placeholder="有什麼特殊需求想告訴飯店？ex:高樓層房間、2張單人床"
+                  ></textarea>
+                </div>
+              </form>
+
+              <!--下一步按鈕-->
+              <div class="Button">
+                <button class="nextButton" type="summit">下一步</button>
+              </div>
+            </div>
+          </div>
+
+          <!--信用卡付款頁面 page2 div-->
+          <div class="page2">
+            <div class="cardData">
+              <h3>信用卡付款資訊</h3>
+            </div>
+            <div>
+              <div class="form-group">
+                <label for="name">持卡人姓名</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="cardName"
+                  name="InputcardName"
+                  placeholder="請輸入持卡人姓名"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="cardNumber">信用卡卡號</label>
+                <input
+                  type="text"
+                  maxlength="16"
+                  class="form-control"
+                  id="cardNumber"
+                  name="InputNumber"
+                  placeholder="請輸入信用卡卡號"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="date">有效日期</label>
+                <input
+                  type="text"
+                  maxlength="5"
+                  class="form-control"
+                  id="finishDate"
+                  name="InputDate"
+                  placeholder="MM/YY"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="Card Security Code">驗證碼</label>
+                <input
+                  type="text"
+                  maxlength="4"
+                  class="form-control"
+                  id="Card Security Code"
+                  name="InputSecurityCode"
+                  placeholder="請輸入信用卡背面的後三碼驗證碼"
+                  required
+                />
+              </div>
+            </div>
+            <!--確認付款按鈕-->
+            <div class="checkButton">
+              <button class="payButton" type="summit">確認付款</button>
+            </div>
+          </div>
+
+          <!--付款完成頁面 page3 div-->
+
+          <div class="page3">
+            <div class="finish">
+              <div class="finishData">
+                <h3>您的預訂已完成！</h3>
+                <p>可至<a href="orders.html">個人頁面</a>查詢與管理訂單</p>
+                <h5>預祝您有一個美好的住宿體驗！</h5>
+              </div>
+            </div>
+
+            <!--回到首頁按鈕-->
+            <div class="returnButton">
+              <button class="indexButton" type="summit">
+                <a href="index.html">回到首頁</a>
+              </button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>關於我們</h4>
+                <ul>
+                    <li><a href="#">工作機會</a></li>
+                    <li><a href="#">合作提案</a></li>
+                    <li><a href="#">認識 OmegaTrip</a></li>
+                    <li><a href="#">常見問題</a></li>
+                    <li><a href="#">聯繫我們</a></li>
+                </ul>
+            </div>
+
+            <br>
+            <div class="footer-col">
+                <h4>客戶服務</h4>
+                <ul>
+                    <li><a href="#">週一 ~ 週五 09:00 ~ 22:00 (UTC+8)</a></li>
+                    <li><a href="#">週六 / 日及連續假日 12:00 ~ 18:00 (UTC+8)</a></li>
+                    <li><a href="#">電話：+886-2-7755-7755</a></li>
+                    <li><a href="#">傳真：+886-2-2784-7755</a></li>
+                    <li><a href="#">信箱：customer_tw@OmegaTrip.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>OmegaTrip</h4>
+                <ul>
+                    <li><a href="#">歐米茄旅行社股份有限公司</a></li>
+                        <li><a href="#">台北市中正區公園路20號</a></li>
+                        <li><a href="#">代表人：吳永豐</a></li>
+                        <li><a href="#">統一編號：89898867</a></li>
+                        <li><a href="#">交觀甲830400號</a></li>
+                        <li><a href="#">品保協會 北9478</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+
+    <script th:src="@{js/hotel.js}"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- JavaScript-->
+
+    <script>
+      //       id="hotelImg" src="..."
+      // <span id="hotelName">璞草行旅
+      // span id="roomType">標準雙人房
+      // id="chkInDate">2023/05/24<
+      // id="chkOutDate">2023/05/26<
+      // <span id="days">2</span> 晚
+      // <span id="chkNo">2</span>人
+      // id="roomPrice">3000</span> / 晚
+      // id="LOS">2</span>晚
+      // id="ttlAmt">6000
+
+      // endDateVal	2023-04-29
+      // days	2
+      // hotelNo	m02
+      // totalPrice	4000
+      // person	1
+      // user	1
+      // alroomno	m02s
+      // hotelName	日月潭經典大飯店范特奇堡
+      // startDate	2023-04-27
+      // bedType	單人房
+      // price	2000
+      // hotelImg	http://localhost:8080/hotelpics/pics/m02/1.jpeg
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const nextButton = document.querySelector(".nextButton");
+        const payButton = document.querySelector(".payButton");
+        const divs = document.querySelectorAll(".page1, .page2, .page3");
+
+        const hotelImg = document.getElementById("hotelImg");
+        const hotelName = document.getElementById("hotelName");
+        const roomType = document.getElementById("roomType");
+        const chkInDate = document.getElementById("chkInDate");
+        const chkOutDate = document.getElementById("chkOutDate");
+        const days = document.getElementById("days");
+        const chkNo = document.getElementById("chkNo");
+        const roomPrice = document.getElementById("roomPrice");
+        const LOS = document.getElementById("LOS");
+        const ttlAmt = document.getElementById("ttlAmt");
+        const name = document.getElementById("name");
+        const request = document.getElementById("request");
+
+        hotelImg.setAttribute("src", localStorage.getItem("hotelImg"));
+        hotelName.innerText = localStorage.getItem("hotelName");
+        roomType.innerText = localStorage.getItem("bedType");
+        chkInDate.innerText = localStorage.getItem("startDate");
+        chkOutDate.innerText = localStorage.getItem("endDateVal");
+        days.innerText = localStorage.getItem("days");
+        chkNo.innerText = localStorage.getItem("person");
+        roomPrice.innerText = localStorage.getItem("price");
+        LOS.innerText = localStorage.getItem("days");
+        ttlAmt.innerText = localStorage.getItem("totalPrice");
+        // let alroomno = localStorage.getItem("alroomno");
+
+        nextButton.addEventListener("click", function () {
+          divs[0].style.display = "none";
+          divs[1].style.display = "block";
+          divs[2].style.display = "none";
+        });
+
+        /*payButton.addEventListener("click", function () {
+            divs[0].style.display = "none";
+            divs[1].style.display = "none";
+            divs[2].style.display = "block";
+          });*/
+
+        payButton.addEventListener("click", () => {
+          divs[0].style.display = "none";
+          divs[1].style.display = "none";
+          divs[2].style.display = "block";
+          chkMember();
+          order();
+          orderInfo();
+        });
+      });
+
+      // chkMember JS
+      const chkGuest = new Object();
+      const orderCheck = new Object();
+      const orderInfoDetails = new Object();
+
+      function chkMember() {
+        chkGuest.name = $("#name").val();
+        chkGuest.phone = $("#tele").val();
+        chkGuest.email = $("#email").val();
+        chkGuest.address = $("#address").val();
+        console.log(chkGuest);
+
+        const chkGuestData = JSON.stringify(chkGuest);
+        console.log(chkGuestData);
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/api/guest ",
+          dataType: "html",
+          data: chkGuestData,
+          contentType: "application/json",
+
+          success: function (response, status) {
+            console.log(response);
+          },
+          error: function (response, status, error) {
+            console.log(error);
+          },
+        });
+      }
+
+      // order JS
+
+      function order() {
+        const orderCheck = {
+          webmember: {
+            email: $("#email").val(),
+          },
+          hotelName: hotelName.innerText,
+          roomQty: roomQty.innerText,
+          ttlAmt: ttlAmt.innerText,
+          note: request.value,
+          orderTime: new Date(),
+          orderinfos: [
+            {
+              chkNo: chkNo.innerText,
+              chkMember: $("#name").val(),
+              hotelName: hotelName.innerText,
+              roomType: localStorage.getItem("alroomno"),
+              roomPrice: roomPrice.innerText,
+              roomQty: roomQty.innerText,
+              chkInDate: chkInDate.innerText,
+              chkOutDate: chkOutDate.innerText,
+              los: LOS.innerText,
+              ttlAMT: ttlAmt.innerText,
+            },
+          ],
+        };
+
+        console.log(orderCheck);
+
+        const orderData = JSON.stringify(orderCheck);
+        console.log(orderData);
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/api/order  ",
+          dataType: "html",
+          data: orderData,
+          contentType: "application/json",
+
+          success: function (response, status) {
+            console.log(response);
+          },
+          error: function (response, status, error) {
+            console.log(error);
+          },
+        });
+      }
+
+      // order JS
+
+      /*
+        function order() {
+          const email = document.getElementById("email").value;
+          const hotelName = document.getElementById("hotelName").value;
+          const roomQty = document.getElementById("roomQty").value;
+          const ttlAmt = document.getElementById("ttlAmt").value;
+          const orderTime = new Date();
+          const request = document.getElementById("request").value;
+
+
+          const orderData = JSON.stringify(orderCheck);
+          console.log(orderData);
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/*",
+            data: orderData,
+            contentType: "application/json",
+            dataType: "html",
+
+            success: function (response, status) {
+              console.log(response);
+            },
+            error: function (response, status, error) {
+              console.log(error);
+            },
+          });
+        }
+        */
+
+      // orderInfo JS
+
+      function orderInfo() {
+        const orderInfoDetails = {
+          roomorder: {
+            orderNo: "test",
+          },
+          chkNo: chkNo.innerText,
+          chkMember: $("#name").val(),
+          hotelName: hotelName.innerText,
+          roomType: roomType.innerText,
+          roomPrice: roomPrice.innerText,
+          roomQty: roomQty.innerText,
+          chkInDate: chkInDate.innerText,
+          chkOutDate: chkOutDate.innerText,
+          los: LOS.innerText,
+          ttlAMT: ttlAmt.innerText,
+        };
+
+        const orderInfoData = JSON.stringify(orderInfoDetails);
+        console.log(orderInfoData);
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8080/api/orderinfo ",
+          dataType: "html",
+          data: orderInfoData,
+          contentType: "application/json",
+
+          success: function (response, status) {
+            console.log(response);
+          },
+          error: function (response, status, error) {
+            console.log(error);
+          },
+        });
+      }
+
+      /*
+        function orderInfo() {
+          const name = document.getElementById("name").value;
+          const chkNo = document.getElementById("chkNo").value;
+          const hotelName = document.getElementById("hotelName ").value;
+          const roomType = document.getElementById("roomType").value;
+          const roomPrice = document.getElementById("roomPrice").value;
+          const roomQty = document.getElementById("roomQty").value;
+          const chkInDate = document.getElementById("chkInDate").value;
+          const chkOutDate = document.getElementById("chkOutDate ").value;
+          const LOS = document.getElementById("LOS ").value;
+          const ttlAmt = document.getElementById("ttlAmt ").value;
+
+          const orderInfoData = JSON.stringify(orderInfoDetails);
+          console.log(orderInfoData);
+
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/*",
+            data: orderInfoData,
+            contentType: "application/json",
+            dataType: "html",
+
+            success: function (response, status) {
+              console.log(response);
+            },
+            error: function (response, status, error) {
+              console.log(error);
+            },
+          });
+        }
+        */
+    </script>
+  </body>
+</html>
