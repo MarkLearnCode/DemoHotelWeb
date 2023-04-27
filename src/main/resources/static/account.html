@@ -279,7 +279,7 @@
       const email = localStorage.getItem("user");
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/api/all/" + email,
+        url: "/api/all/" + email,
         dataType: "json",
         success: function (response, status) {
           console.log(response);
@@ -313,7 +313,7 @@
 
         $.ajax({
           type: "POST",
-          url: "http://localhost:8080/api/update/" + email,
+          url: "/api/update/" + email,
           dataType: "text",
           data: value,
           contentType: "application/json",

@@ -259,7 +259,7 @@
         const email = localStorage.getItem("user");
         $.ajax({
           type: "GET",
-          url: "http://localhost:8080/api/info/" + email,
+          url: "/api/info/" + email,
           dataType: "json",
           success: function (response, status) {
             console.log(response);

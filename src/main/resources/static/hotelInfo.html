@@ -104,22 +104,13 @@
       <div class="roomInfo">
         <div class="roomPics">
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/1room/1.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/1room/1.jpg" alt="" />
           </div>
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/1room/2.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/1room/2.jpg" alt="" />
           </div>
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/1room/3.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/1room/3.jpg" alt="" />
           </div>
         </div>
 
@@ -141,22 +132,13 @@
       <div class="roomInfo">
         <div class="roomPics">
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/2room/1.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/2room/1.jpg" alt="" />
           </div>
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/2room/2.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/2room/2.jpg" alt="" />
           </div>
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/2room/3.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/2room/3.jpg" alt="" />
           </div>
         </div>
 
@@ -177,22 +159,13 @@
       <div class="roomInfo">
         <div class="roomPics">
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/4room/1.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/4room/1.jpg" alt="" />
           </div>
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/4room/2.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/4room/2.jpg" alt="" />
           </div>
           <div class="roomPic">
-            <img
-              src="http://localhost:8080/hotelpics/pics/4room/3.jpg"
-              alt=""
-            />
+            <img src="/hotelpics/pics/4room/3.jpg" alt="" />
           </div>
         </div>
 
@@ -237,7 +210,7 @@
       let checkIn = document.getElementById("checkIn");
       let checkOut = document.getElementById("checkOut");
 
-      $.get(`http://localhost:8080/api/hoetl/${hotelNo}`, (data) => {
+      $.get(`/api/hoetl/${hotelNo}`, (data) => {
         // console.log(data);
         // hotel = data;
         hotelName.innerText = data.hotelName;
@@ -258,7 +231,7 @@
         localStorage.setItem("bedType", "");
         localStorage.setItem("roomType", "");
       });
-      $.get(`http://localhost:8080/api/takeRoominfo/${hotelNo}`, (data) => {
+      $.get(`/api/takeRoominfo/${hotelNo}`, (data) => {
         // console.log(data);
         // hotel = data;
         sroom.innerText = sroom.innerText + data[0].roomqty;

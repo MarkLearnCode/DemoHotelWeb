@@ -582,7 +582,7 @@
           } else {
             // alert('add');
             var method = "Post";
-            var url = "http://localhost:8080/api/addhotel";
+            var url = "/api/addhotel";
             $scope.hotel = {
               hotelName: n,
               phone: p,
@@ -619,7 +619,7 @@
         $scope.refresh = function () {
           $http({
             method: "GET",
-            url: "http://localhost:8080/api/memberView",
+            url: "/api/memberView",
           }).then(
             function successCallback(response) {
               $scope.hotel = response.data.hotel;
@@ -653,7 +653,7 @@
           alert("選擇:" + x.hotelName);
           $http({
             method: "GET",
-            url: "http://localhost:8080/api/updateID/" + id,
+            url: "/api/updateID/" + id,
           }).then(
             function (response) {
               $scope.x = response.data;
@@ -665,7 +665,7 @@
 
           $http({
             method: "GET",
-            url: "http://localhost:8080/api/x/" + hotelName,
+            url: "/api/x/" + hotelName,
           }).then(
             function (response) {
               $scope.Rst = response.data;
@@ -681,7 +681,7 @@
           alert(id);
           $http({
             method: "GET",
-            url: "http://localhost:8080/api/updateID/" + id,
+            url: "/api/updateID/" + id,
           }).then(
             function (response) {
               // 當成功得到 response 時，將回傳的資料存到 $scope.data 變數中
@@ -712,7 +712,7 @@
           alert(JSON.stringify($scope.hotel));
           $http({
             method: "Post",
-            url: "http://localhost:8080/api/updateID/" + id,
+            url: "/api/updateID/" + id,
             data: angular.toJson($scope.hotel),
             headers: {
               "Content-Type": "application/json",
@@ -727,7 +727,7 @@
           // alert(hotelName);
           $http({
             method: "GET",
-            url: "http://localhost:8080/api/x/" + hotelName,
+            url: "/api/x/" + hotelName,
           }).then(
             function (response) {
               // 當成功得到 response 時，將回傳的資料存到 $scope.data 變數中
@@ -755,7 +755,7 @@
           Rvdiv.style.display = "none";
           $http({
             method: "GET",
-            url: "http://localhost:8080/api/wmember",
+            url: "/api/wmember",
           }).then(
             function successCallback(response) {
               $scope.webmember = response.data.webmember;
@@ -801,7 +801,7 @@
 
           $http({
             method: "GET",
-            url: "http://localhost:8080/api/roomorder/" + x.email,
+            url: "/api/roomorder/" + x.email,
           }).then(
             function successCallback(response) {
               $scope.order = response.data.order;

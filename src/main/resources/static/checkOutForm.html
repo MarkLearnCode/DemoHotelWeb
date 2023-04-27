@@ -19,7 +19,10 @@
       crossorigin="anonymous"
     />
     <!-- FontAwesome 連結 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <!--Google Font Setting-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,7 +40,6 @@
     <link rel="stylesheet" href="./css/checkOutForm.css" />
   </head>
   <body>
-    
     <!-- Navbar -->
     <nav
       class="navbar navbar-expand-lg navbar-light shadow-sm p-3 mb-5 bg-body rounded"
@@ -351,56 +353,54 @@
 
     <!-- footer -->
     <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
+    <footer class="footer">
+      <div class="container">
         <div class="row">
-            <div class="footer-col">
-                <h4>關於我們</h4>
-                <ul>
-                    <li><a href="#">工作機會</a></li>
-                    <li><a href="#">合作提案</a></li>
-                    <li><a href="#">認識 OmegaTrip</a></li>
-                    <li><a href="#">常見問題</a></li>
-                    <li><a href="#">聯繫我們</a></li>
-                </ul>
-            </div>
+          <div class="footer-col">
+            <h4>關於我們</h4>
+            <ul>
+              <li><a href="#">工作機會</a></li>
+              <li><a href="#">合作提案</a></li>
+              <li><a href="#">認識 OmegaTrip</a></li>
+              <li><a href="#">常見問題</a></li>
+              <li><a href="#">聯繫我們</a></li>
+            </ul>
+          </div>
 
-            <br>
-            <div class="footer-col">
-                <h4>客戶服務</h4>
-                <ul>
-                    <li><a href="#">週一 ~ 週五 09:00 ~ 22:00 (UTC+8)</a></li>
-                    <li><a href="#">週六 / 日及連續假日 12:00 ~ 18:00 (UTC+8)</a></li>
-                    <li><a href="#">電話：+886-2-7755-7755</a></li>
-                    <li><a href="#">傳真：+886-2-2784-7755</a></li>
-                    <li><a href="#">信箱：customer_tw@OmegaTrip.com</a></li>
-                </ul>
+          <br />
+          <div class="footer-col">
+            <h4>客戶服務</h4>
+            <ul>
+              <li><a href="#">週一 ~ 週五 09:00 ~ 22:00 (UTC+8)</a></li>
+              <li><a href="#">週六 / 日及連續假日 12:00 ~ 18:00 (UTC+8)</a></li>
+              <li><a href="#">電話：+886-2-7755-7755</a></li>
+              <li><a href="#">傳真：+886-2-2784-7755</a></li>
+              <li><a href="#">信箱：customer_tw@OmegaTrip.com</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>OmegaTrip</h4>
+            <ul>
+              <li><a href="#">歐米茄旅行社股份有限公司</a></li>
+              <li><a href="#">台北市中正區公園路20號</a></li>
+              <li><a href="#">代表人：吳永豐</a></li>
+              <li><a href="#">統一編號：89898867</a></li>
+              <li><a href="#">交觀甲830400號</a></li>
+              <li><a href="#">品保協會 北9478</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <div class="footer-col">
-                <h4>OmegaTrip</h4>
-                <ul>
-                    <li><a href="#">歐米茄旅行社股份有限公司</a></li>
-                        <li><a href="#">台北市中正區公園路20號</a></li>
-                        <li><a href="#">代表人：吳永豐</a></li>
-                        <li><a href="#">統一編號：89898867</a></li>
-                        <li><a href="#">交觀甲830400號</a></li>
-                        <li><a href="#">品保協會 北9478</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>follow us</h4>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-
+          </div>
         </div>
-    </div>
-
-</footer>
+      </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -525,7 +525,7 @@
 
         $.ajax({
           type: "POST",
-          url: "http://localhost:8080/api/guest ",
+          url: "/api/guest ",
           dataType: "html",
           data: chkGuestData,
           contentType: "application/json",
@@ -574,7 +574,7 @@
 
         $.ajax({
           type: "POST",
-          url: "http://localhost:8080/api/order  ",
+          url: "/api/order  ",
           dataType: "html",
           data: orderData,
           contentType: "application/json",
@@ -644,7 +644,7 @@
 
         $.ajax({
           type: "POST",
-          url: "http://localhost:8080/api/orderinfo ",
+          url: "/api/orderinfo ",
           dataType: "html",
           data: orderInfoData,
           contentType: "application/json",
