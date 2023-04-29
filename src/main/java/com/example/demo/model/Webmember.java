@@ -12,7 +12,8 @@ import java.util.List;
  * 
  */
 @Entity
-@NamedQuery(name = "Webmember.findAll", query = "SELECT w FROM Webmember w")
+@Table(name = "webmember")
+// @NamedQuery(name = "Webmember.findAll", query = "SELECT w FROM Webmember w")
 public class Webmember implements Serializable {
 	private static final long serialVersionUID = 1L;
 

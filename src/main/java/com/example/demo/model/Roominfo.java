@@ -7,13 +7,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-
 /**
  * The persistent class for the roominfo database table.
  * 
  */
 @Entity
-//@NamedQuery(name="Roominfo.findAll", query="SELECT r FROM Roominfo r")
+@Table(name = "roominfo")
+// @NamedQuery(name="Roominfo.findAll", query="SELECT r FROM Roominfo r")
 public class Roominfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -27,15 +27,14 @@ public class Roominfo implements Serializable {
 
 	private String roomqty;
 
-	//bi-directional many-to-one association to Hotel
+	// bi-directional many-to-one association to Hotel
 	@ManyToOne
-//	@JoinColumn(name="hotelNo", columnDefinition = "VARCHAR")
-	 @JoinColumn(name = "hotelNo", referencedColumnName = "hotelNo")
+	// @JoinColumn(name="hotelNo", columnDefinition = "VARCHAR")
+	@JoinColumn(name = "hotelNo", referencedColumnName = "hotelNo")
 	private Hotel hotel;
-	
 
-	//bi-directional many-to-one association to Roomstatus
-	@OneToMany(mappedBy="roominfo",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	// bi-directional many-to-one association to Roomstatus
+	@OneToMany(mappedBy = "roominfo", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Roomstatus> roomstatuses;
 
 	public Roominfo() {
@@ -73,10 +72,11 @@ public class Roominfo implements Serializable {
 		this.roomqty = roomqty;
 	}
 
- 	public Hotel getHotel() {
+	public Hotel getHotel() {
 		return this.hotel;
 	}
- 	@JsonIgnore
+
+	@JsonIgnore
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
