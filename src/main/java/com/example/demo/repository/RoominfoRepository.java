@@ -14,4 +14,6 @@ public interface RoominfoRepository extends JpaRepository<Roominfo, Integer> {
 //	@Query(value = "select * from roominfo where hotelNo = :hotelNo", nativeQuery = true)
 //	List<Roominfo> findRoomInfoByHotelNo(@Param("hotelNo") String hotelNo);
 //	List<Roominfo> findByHotelHotelNo(String hotelNo);
+	
+	Roominfo findByAlroomno(String alroomno);
 }

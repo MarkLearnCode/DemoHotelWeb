@@ -13,10 +13,12 @@ public interface HotelRepository extends JpaRepository<Hotel, Integer> {
 	@Query(value = "select * from hotel where hotelNo=?1",nativeQuery = true)
 	Hotel findByHotelNo(String hotelNo);
 		
-	@Query(value = "select * from hotel where id=?1",nativeQuery = true)
+//	@Query(value = "select * from hotel where id=?1",nativeQuery = true)
+//	Hotel findById(int id);
 	Hotel findById(int id);
 	
-	@Query(value = "select * from hotel where hotelName=?1",nativeQuery = true)
-	Hotel findByname(String hotelName);
+//	@Query(value = "select * from hotel where hotelName=?1",nativeQuery = true)
+//	Hotel findByname(String hotelName);
+	Hotel findByHotelName(String hotelName);
 }
 

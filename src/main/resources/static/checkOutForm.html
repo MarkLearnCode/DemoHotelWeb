@@ -544,7 +544,7 @@
       function order() {
         const orderCheck = {
           webmember: {
-            email: $("#email").val(),
+            email: localStorage.getItem("user"),
           },
           hotelName: hotelName.innerText,
           roomQty: roomQty.innerText,
@@ -622,41 +622,41 @@
 
       // orderInfo JS
 
-      function orderInfo() {
-        const orderInfoDetails = {
-          roomorder: {
-            orderNo: "test",
-          },
-          chkNo: chkNo.innerText,
-          chkMember: $("#name").val(),
-          hotelName: hotelName.innerText,
-          roomType: roomType.innerText,
-          roomPrice: roomPrice.innerText,
-          roomQty: roomQty.innerText,
-          chkInDate: chkInDate.innerText,
-          chkOutDate: chkOutDate.innerText,
-          los: LOS.innerText,
-          ttlAMT: ttlAmt.innerText,
-        };
+      // function orderInfo() {
+      //   const orderInfoDetails = {
+      //     roomorder: {
+      //       orderNo: "test",
+      //     },
+      //     chkNo: chkNo.innerText,
+      //     chkMember: $("#name").val(),
+      //     hotelName: hotelName.innerText,
+      //     roomType: roomType.innerText,
+      //     roomPrice: roomPrice.innerText,
+      //     roomType: localStorage.getItem("alroomno"),
+      //     chkInDate: chkInDate.innerText,
+      //     chkOutDate: chkOutDate.innerText,
+      //     los: LOS.innerText,
+      //     ttlAMT: ttlAmt.innerText,
+      //   };
 
-        const orderInfoData = JSON.stringify(orderInfoDetails);
-        console.log(orderInfoData);
+      //   const orderInfoData = JSON.stringify(orderInfoDetails);
+      //   console.log(orderInfoData);
 
-        $.ajax({
-          type: "POST",
-          url: "/api/orderinfo ",
-          dataType: "html",
-          data: orderInfoData,
-          contentType: "application/json",
+      //   $.ajax({
+      //     type: "POST",
+      //     url: "/api/orderinfo ",
+      //     dataType: "html",
+      //     data: orderInfoData,
+      //     contentType: "application/json",
 
-          success: function (response, status) {
-            console.log(response);
-          },
-          error: function (response, status, error) {
-            console.log(error);
-          },
-        });
-      }
+      //     success: function (response, status) {
+      //       console.log(response);
+      //     },
+      //     error: function (response, status, error) {
+      //       console.log(error);
+      //     },
+      //   });
+      // }
 
       /*
         function orderInfo() {

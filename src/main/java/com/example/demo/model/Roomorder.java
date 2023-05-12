@@ -3,25 +3,26 @@ package com.example.demo.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
 import java.util.List;
 
+
 /**
  * The persistent class for the roomorder database table.
  * 
  */
 @Entity
-@NamedQuery(name = "Roomorder.findAll", query = "SELECT r FROM Roomorder r")
-// @JsonInclude
-@Table(name = "roomorder")
+@NamedQuery(name="Roomorder.findAll", query="SELECT r FROM Roomorder r")
 public class Roomorder implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String hotelName;
@@ -37,15 +38,14 @@ public class Roomorder implements Serializable {
 
 	private String ttlAmt;
 
-	// bi-directional many-to-one association to Orderinfo
-	@OneToMany(mappedBy = "roomorder", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	// @OneToMany(mappedBy="roomorder")
-
+	//bi-directional many-to-one association to Orderinfo
+	@OneToMany(mappedBy="roomorder",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@Fetch(FetchMode.JOIN)
 	private List<Orderinfo> orderinfos;
 
-	// bi-directional many-to-one association to Webmember
+	//bi-directional many-to-one association to Webmember
 	@ManyToOne
-	@JoinColumn(name = "roemail", referencedColumnName = "email")
+	@JoinColumn(name="email",referencedColumnName = "email")
 	private Webmember webmember;
 
 	public Roomorder() {
@@ -106,15 +106,10 @@ public class Roomorder implements Serializable {
 	public void setTtlAmt(String ttlAmt) {
 		this.ttlAmt = ttlAmt;
 	}
-
-	// @JsonIgnore
-	// @JsonInclude
+//	@JsonIgnore
 	public List<Orderinfo> getOrderinfos() {
 		return this.orderinfos;
 	}
-
-	// @JsonInclude
-	// @JsonIgnore
 	public void setOrderinfos(List<Orderinfo> orderinfos) {
 		this.orderinfos = orderinfos;
 	}
@@ -136,20 +131,18 @@ public class Roomorder implements Serializable {
 	public Webmember getWebmember() {
 		return this.webmember;
 	}
-
-	// @JsonIgnore
-	// @JsonInclude
+//	@JsonIgnore
+	@JsonInclude
 	public void setWebmember(Webmember webmember) {
 		this.webmember = webmember;
 	}
 
-	// @Override
-	// public String toString() {
-	// return "Roomorder [id=" + id + ", hotelName=" + hotelName + ", roomQty=" +
-	// roomQty + ", note=" + note
-	// + ", orderNo=" + orderNo + ", orderTime=" + orderTime + ", ttlAmt=" + ttlAmt
-	// + ", orderinfos="
-	// + orderinfos + ", webmember=" + webmember + "]";
-	// }
-
+	@Override
+	public String toString() {
+		return "Roomorder [id=" + id + ", hotelName=" + hotelName + ", roomQty=" + roomQty + ", note=" + note
+				+ ", orderNo=" + orderNo + ", orderTime=" + orderTime + ", ttlAmt=" + ttlAmt + ", orderinfos="
+				+ orderinfos + ", webmember=" + webmember + "]";
+	}
+	
+	
 }

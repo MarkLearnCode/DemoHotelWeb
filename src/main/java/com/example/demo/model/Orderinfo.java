@@ -8,18 +8,18 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;
 
+
 /**
  * The persistent class for the orderinfo database table.
  * 
  */
 @Entity
 @Table(name = "orderinfo")
-// @NamedQuery(name="Orderinfo.findAll", query="SELECT o FROM Orderinfo o")
+//@NamedQuery(name="Orderinfo.findAll", query="SELECT o FROM Orderinfo o")
 public class Orderinfo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Temporal(TemporalType.DATE)
@@ -44,9 +44,9 @@ public class Orderinfo implements Serializable {
 
 	private String ttlAMT;
 
-	// bi-directional many-to-one association to Roomorder
+	//bi-directional many-to-one association to Roomorder
 	@ManyToOne
-	@JoinColumn(name = "orderNo", referencedColumnName = "orderNo")
+	@JoinColumn(name="orderNo",referencedColumnName = "orderNo")
 	private Roomorder roomorder;
 
 	public Orderinfo() {
@@ -139,26 +139,14 @@ public class Orderinfo implements Serializable {
 	public void setTtlAMT(String ttlAMT) {
 		this.ttlAMT = ttlAMT;
 	}
-
 	@JsonIgnore
 	public Roomorder getRoomorder() {
 		return this.roomorder;
 	}
-
+//	@JsonIgnore
 	@JsonInclude
 	public void setRoomorder(Roomorder roomorder) {
 		this.roomorder = roomorder;
 	}
-
-	// @Override
-	// public String toString() {
-	// return "Orderinfo [id=" + id + ", chkInDate=" + chkInDate + ", chkMember=" +
-	// chkMember + ", chkNo=" + chkNo
-	// + ", chkOutDate=" + chkOutDate + ", hotelName=" + hotelName + ", los=" + los
-	// + ", roomPrice="
-	// + roomPrice + ", roomQty=" + roomQty + ", roomType=" + roomType + ", ttlAMT="
-	// + ttlAMT + ", roomorder="
-	// + roomorder + "]";
-	// }
 
 }

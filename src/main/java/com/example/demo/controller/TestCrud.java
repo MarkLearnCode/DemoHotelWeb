@@ -19,6 +19,7 @@ import com.example.demo.repository.RoomOrderRepository;
 import com.example.demo.repository.RoominfoRepository;
 import com.example.demo.repository.RoomstatusRepository;
 import com.example.demo.repository.WebmemberRepository;
+import com.example.demo.service.RoominfoService;
 
 @RestController
 @RequestMapping(value = "/test")
@@ -37,43 +38,59 @@ public class TestCrud {
 	private RoomstatusRepository RsRe;
 	@Autowired
 	private WebmemberRepository WmRe;
-	
+	@Autowired
+	private RoominfoService rifs;
+
 	@GetMapping(value = "/chk")
 	public void chk() {
 
 	}
+
 	@GetMapping(value = "/hot")
 	public void hot() {
 
 	}
+
 	@GetMapping(value = "/orderInfo")
 	public void orderInfo() {
 
 	}
+
 	@GetMapping(value = "/roomInfo")
 	public List<Roominfo> roomInfo() {
 		return RiRe.findAll();
 
 	}
+
 	@GetMapping(value = "/roomOrder/{email}")
 	public List<Roomorder> orderList(@PathVariable String email) {
 		List<Roomorder> orderList = RoRe.findByEmail(email);
 		return orderList;
 	}
+
 	@GetMapping(value = "/roomState")
 	public List<Roomstatus> roomState() {
-		return RsRe.findAll();		
+		return RsRe.findAll();
 	}
+
 	@GetMapping(value = "/roomStateAlno/{alno}")
 	public List<Roomstatus> roomStateAlno(@PathVariable String alno) {
-		return RsRe.findAllRoomstatusByAlroomno(alno);		
+		return RsRe.findAllRoomstatusByAlroomno(alno);
 	}
+
 	@GetMapping(value = "/webMem")
 	public List<Webmember> webMem() {
 		return WmRe.findAll();
 	}
+
 	@GetMapping(value = "/webMem/{email}")
 	public Webmember webMem(@PathVariable String email) {
 		return WmRe.findByEmail(email);
+	}
+
+	@GetMapping(value = "/roomCount")
+	public List<String> roomCount() {
+		List<String> rooms = rifs.availableRooms("m01", "2023-05-29", "2023-05-25");
+		return rooms;
 	}
 }

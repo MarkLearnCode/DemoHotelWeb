@@ -20,9 +20,7 @@ import com.example.demo.model.Roominfo;
 import com.example.demo.model.Roomorder;
 import com.example.demo.model.Roomstatus;
 import com.example.demo.model.Webmember;
-import com.example.demo.repository.OrderInfoRepository;
 import com.example.demo.repository.RoomOrderRepository;
-import com.example.demo.repository.RoominfoRepository;
 import com.example.demo.repository.RoomstatusRepository;
 import com.example.demo.repository.WebmemberRepository;
 import com.example.demo.service.HotelService;
@@ -43,21 +41,12 @@ public class LoadingPageController {
 	
 	@Autowired
 	private RoomstatusService rss;
+	@Autowired
+	private RoominfoService roominfoService;
 	
 	@Autowired
-	private RoomstatusRepository d;
+	private WebmemberRepository webmemberRepository;
 	
-	@Autowired
-	private RoominfoRepository x;
-	
-	@Autowired
-	private WebmemberRepository m;
-	
-	@Autowired
-	private OrderInfoRepository o;
-	
-	@Autowired
-	private RoomOrderRepository xx;
 	
 //	private RoomstatusRepository d;
 //	private RoominfoRepository x;
@@ -106,6 +95,14 @@ public class LoadingPageController {
 	public Map<String,List<Roominfo>> takeAllRoominfo() {
 		return rs.takeAllRoominfo();
 	}
+	
+	@GetMapping("/takeAvailableRooms/{hotelNo}/{chickInDate}/{chickOutDate}")
+	@CrossOrigin("*")
+	public List<String> availableRooms(@PathVariable String hotelNo, @PathVariable String chickInDate,@PathVariable String chickOutDate) {
+		List<String> rooms = roominfoService.availableRooms(hotelNo, chickInDate, chickOutDate);
+		return rooms;
+	}
+	
 	@GetMapping("/takeRooms/{alroomno}")
 	@CrossOrigin("*")
 	public List<Roomstatus> takeRooms(@PathVariable String alroomno) {
@@ -121,27 +118,20 @@ public class LoadingPageController {
 	@GetMapping("/memberView")
 	@CrossOrigin("*")
 	public Map<String, List<Hotel>> findHotel(){
-
-		
 		return  hs.getAllHotels() ;
 	}
 	
 	@PostMapping("/addhotel")
 	@CrossOrigin("*")
-	  public  Hotel addHotel(@RequestBody Hotel hotel) {
-		  	
+	  public  String addHotel(@RequestBody Hotel hotel) {
 		 hs.addHotel(hotel); 
-		return null;		  
+		return "add hotel success";		  
 	  }
 	
 	@GetMapping("/updateID/{id}")
 	@CrossOrigin("*")
 	public Hotel updatahotel(@PathVariable int id) {
-		
-
-			
 			 Hotel udate = hs.getHotlById(id);
-		    
 		   System.out.println(udate);
 		  return udate;
 	}
@@ -172,8 +162,6 @@ public class LoadingPageController {
 	@CrossOrigin("*")
 	public 	Map<String, Integer>  getStatus(@PathVariable("hotelName") String hotelName) {
 
-		
-		
 		System.out.println(hotelName);
 		   Hotel hotel=hs.getHotelByname(hotelName);		   		  
 		    
@@ -211,41 +199,26 @@ public class LoadingPageController {
 		    Rst.put("quad", Qrom);
 
 		    System.out.println("Successfully retrieved room status for hotel {}"+hotelName);
-		    
 		    return Rst;
-
 	}
 	
 	//抓取所有的會員資料
-		@GetMapping("/wmember")
-		@CrossOrigin("*")
-		public  Map<String, List<Webmember>> searchuser(){
-			Map<String, List<Webmember>> data = new HashMap<>();
-			data.put("webmember", m.findAll());		
-			return data;		
-		}
-		//點擊後抓取詳細資料
-		@GetMapping("/roomorder/{email}")
-		@CrossOrigin("*")
-		public  Map<String, List<Roomorder>> findOrderInfo(@PathVariable("email") String email){
-			Map<String, List<Roomorder>> data = new HashMap<>();
-			List<Roomorder> order =xx.findByEmail(email);
-			data.put("order", order);
-				
-			return data;		
-		}
+			@GetMapping("/wmember")
+			@CrossOrigin("*")
+			public  Map<String, List<Webmember>> searchuser(){
+				Map<String, List<Webmember>> data = new HashMap<>();
+				data.put("webmember", webmemberRepository.findAll());		
+				return data;		
+			}
+			//點擊後抓取詳細資料
+			@GetMapping("/roomorder/{email}")
+			@CrossOrigin("*")
+			public  Map<String, List<Roomorder>> findOrderInfo(@PathVariable("email") String email){
+				Map<String, List<Roomorder>> data = new HashMap<>();
+				List<Roomorder> order =or.findByEmail(email);
+				data.put("order", order);
+					
+				return data;		
+			}
 	
-//	@GetMapping("/area/*")
-//	public ModelAndView errorPage() {
-//		return new ModelAndView("errorPage");
-//	}
-//	@GetMapping("/testSave")
-//	public String saveOrder() {
-//		Roomorder od = new Roomorder();
-//		od.setOrderNo("test2");
-//		od.setRoomQty("QTY");
-//		or.save(od);
-//		return "success";
-//		
-//	}
 }

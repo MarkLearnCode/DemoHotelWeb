@@ -231,14 +231,29 @@
         localStorage.setItem("bedType", "");
         localStorage.setItem("roomType", "");
       });
-      $.get(`/api/takeRoominfo/${hotelNo}`, (data) => {
-        // console.log(data);
-        // hotel = data;
-        sroom.innerText = sroom.innerText + data[0].roomqty;
-        droom.innerText = droom.innerText + data[1].roomqty;
-        qroom.innerText = qroom.innerText + data[2].roomqty;
-        console.log(data);
-      });
+      // 改寫中
+      // $.get(`/api/takeRoominfo/${hotelNo}`, (data) => {
+      //   // console.log(data);
+      //   // hotel = data;
+      //   sroom.innerText = sroom.innerText + data[0].roomqty;
+      //   droom.innerText = droom.innerText + data[1].roomqty;
+      //   qroom.innerText = qroom.innerText + data[2].roomqty;
+      //   console.log(data);
+      // });
+
+      $.get(
+        `/api/takeAvailableRooms/${hotelNo}/${chickInDate}/${chickOutDate}`,
+        (data) => {
+          // console.log(data);
+          // hotel = data;
+          sroom.innerText = sroom.innerText + data[0].roomqty;
+          droom.innerText = droom.innerText + data[1].roomqty;
+          qroom.innerText = qroom.innerText + data[2].roomqty;
+          console.log(data);
+        }
+      );
+
+      // 改寫中
 
       btnS.addEventListener("click", () => {
         // alroomno = localStorage.getItem(hotelNo) + btnS.getAttribute("id");
@@ -343,6 +358,7 @@
           checkOut.setAttribute("style", "");
         }
       });
+
       console.log(date1);
       //創建元素endDate Listener
       endDate.addEventListener("change", (e) => {
@@ -361,11 +377,27 @@
             "退房日 : " + endDateVal + "  共" + days + "天";
           localStorage.setItem("endDateVal", endDateVal);
           localStorage.setItem("days", days);
+
+          console.log(localStorage.getItem("startDate"));
+          console.log(localStorage.getItem("endDateVal"));
+
+          $.get(
+            `/api/takeAvailableRooms/${hotelNo}/${localStorage.getItem(
+              "startDate"
+            )}/${endDateVal}`,
+            (data) => {
+              sroom.innerText = sroom.innerText + data[0];
+              droom.innerText = droom.innerText + data[1];
+              qroom.innerText = qroom.innerText + data[2];
+              console.log(data);
+            }
+          );
         } else {
           document.getElementById("endDateSelected").innerText =
             "請確認退房日期";
         }
       });
+
       window.addEventListener("load", () => {
         if (localStorage.getItem("user")) {
           let navLogo = document.getElementById("navLogo");

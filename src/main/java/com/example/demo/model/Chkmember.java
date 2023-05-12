@@ -3,13 +3,13 @@ package com.example.demo.model;
 import java.io.Serializable;
 import javax.persistence.*;
 
+
 /**
  * The persistent class for the chkmember database table.
  * 
  */
 @Entity
-@Table(name = "chkmember")
-// @NamedQuery(name="Chkmember.findAll", query="SELECT c FROM Chkmember c")
+//@NamedQuery(name="Chkmember.findAll", query="SELECT c FROM Chkmember c")
 public class Chkmember implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -14,6 +14,7 @@ import com.example.demo.repository.RoomstatusRepository;
 
 @Service
 public class RoomstatusService {
+	@Autowired
 	   private HotelRepository hr;
 	   
 	   @Autowired
@@ -23,7 +24,7 @@ public class RoomstatusService {
 	   
 	   
 	   public List<Roomstatus> findByRoominfo_Alroomno(String alroomno){
-		   List<Roomstatus>  data= rf.findByRoominfo_Alroomno(alroomno);
+		   List<Roomstatus>  data= rf.findAllRoomstatusByAlroomno(alroomno);
 		   
 		return data;
 		   
@@ -53,17 +54,17 @@ public class RoomstatusService {
 		    String Dr = hotelNo + "d";
 		    String Qr = hotelNo + "q";
 
-		    List<Roomstatus> Scount = rf.findByRoominfo_Alroomno(Sr);
+		    List<Roomstatus> Scount = rf.findAllRoomstatusByAlroomno(Sr);
 		    int Srom = (int) Scount.stream()
 		            .filter(r -> r.getChkstatus().equals("N"))
 		            .count();
 
-		    List<Roomstatus> Dcount = rf.findByRoominfo_Alroomno(Dr);
+		    List<Roomstatus> Dcount = rf.findAllRoomstatusByAlroomno(Dr);
 		    int Drom = (int) Dcount.stream()
 		            .filter(r -> r.getChkstatus().equals("N"))
 		            .count();
 
-		    List<Roomstatus> Qcount = rf.findByRoominfo_Alroomno(Qr);
+		    List<Roomstatus> Qcount = rf.findAllRoomstatusByAlroomno(Qr);
 		    int Qrom = (int) Qcount.stream()
 		            .filter(r -> r.getChkstatus().equals("N"))
 		            .count();

@@ -5,13 +5,13 @@ import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 /**
  * The persistent class for the roomstatus database table.
  * 
  */
 @Entity
-@Table(name = "roomstatus")
-// @NamedQuery(name="Roomstatus.findAll", query="SELECT r FROM Roomstatus r")
+//@NamedQuery(name="Roomstatus.findAll", query="SELECT r FROM Roomstatus r")
 public class Roomstatus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -25,16 +25,16 @@ public class Roomstatus implements Serializable {
 
 	private String roomno;
 
-	// bi-directional many-to-one association to Roominfo
+	//bi-directional many-to-one association to Roominfo
 	@ManyToOne(fetch = FetchType.EAGER)
-	// @JoinColumn(name="alroomno" , columnDefinition = "VARCHAR")
-	@JoinColumn(name = "alroomno", referencedColumnName = "alroomno")
+//	@JoinColumn(name="alroomno" , columnDefinition = "VARCHAR")
+	@JoinColumn(name = "alroomno",referencedColumnName = "alroomno")
 	private Roominfo roominfo;
 
-	// bi-directional many-to-one association to Webmember
+	//bi-directional many-to-one association to Webmember
 	@ManyToOne(fetch = FetchType.EAGER)
-	// @JoinColumn(name="rmemail" , columnDefinition = "VARCHAR")
-	@JoinColumn(name = "rmemail", referencedColumnName = "email")
+//	@JoinColumn(name="rmemail" , columnDefinition = "VARCHAR")
+	@JoinColumn(name = "rmemail",referencedColumnName = "email")
 	private Webmember webmember;
 
 	public Roomstatus() {
@@ -75,7 +75,6 @@ public class Roomstatus implements Serializable {
 	public Roominfo getRoominfo() {
 		return this.roominfo;
 	}
-
 	@JsonIgnore
 	public void setRoominfo(Roominfo roominfo) {
 		this.roominfo = roominfo;
@@ -84,7 +83,6 @@ public class Roomstatus implements Serializable {
 	public Webmember getWebmember() {
 		return this.webmember;
 	}
-
 	@JsonIgnore
 	public void setWebmember(Webmember webmember) {
 		this.webmember = webmember;

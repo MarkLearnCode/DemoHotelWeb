@@ -91,7 +91,7 @@ a{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    background-image: url("https://img.asiayo.com/static/images/index/Tw_taipei_desktop@3x.jpg");
+    background-image: url("../hotelpics/areaPic/1.jpg");
     transition: 0.5s;
 }
 .north:hover{
