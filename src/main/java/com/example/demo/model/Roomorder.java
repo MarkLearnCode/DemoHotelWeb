@@ -12,13 +12,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.Date;
 import java.util.List;
 
-
 /**
  * The persistent class for the roomorder database table.
  * 
  */
 @Entity
-@NamedQuery(name="Roomorder.findAll", query="SELECT r FROM Roomorder r")
+@Table(name = "roomorder")
+@NamedQuery(name = "Roomorder.findAll", query = "SELECT r FROM Roomorder r")
 public class Roomorder implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -38,14 +38,14 @@ public class Roomorder implements Serializable {
 
 	private String ttlAmt;
 
-	//bi-directional many-to-one association to Orderinfo
-	@OneToMany(mappedBy="roomorder",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//	@Fetch(FetchMode.JOIN)
+	// bi-directional many-to-one association to Orderinfo
+	@OneToMany(mappedBy = "roomorder", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	// @Fetch(FetchMode.JOIN)
 	private List<Orderinfo> orderinfos;
 
-	//bi-directional many-to-one association to Webmember
+	// bi-directional many-to-one association to Webmember
 	@ManyToOne
-	@JoinColumn(name="email",referencedColumnName = "email")
+	@JoinColumn(name = "email", referencedColumnName = "email")
 	private Webmember webmember;
 
 	public Roomorder() {
@@ -106,10 +106,12 @@ public class Roomorder implements Serializable {
 	public void setTtlAmt(String ttlAmt) {
 		this.ttlAmt = ttlAmt;
 	}
-//	@JsonIgnore
+
+	// @JsonIgnore
 	public List<Orderinfo> getOrderinfos() {
 		return this.orderinfos;
 	}
+
 	public void setOrderinfos(List<Orderinfo> orderinfos) {
 		this.orderinfos = orderinfos;
 	}
@@ -131,7 +133,8 @@ public class Roomorder implements Serializable {
 	public Webmember getWebmember() {
 		return this.webmember;
 	}
-//	@JsonIgnore
+
+	// @JsonIgnore
 	@JsonInclude
 	public void setWebmember(Webmember webmember) {
 		this.webmember = webmember;
@@ -143,6 +146,5 @@ public class Roomorder implements Serializable {
 				+ ", orderNo=" + orderNo + ", orderTime=" + orderTime + ", ttlAmt=" + ttlAmt + ", orderinfos="
 				+ orderinfos + ", webmember=" + webmember + "]";
 	}
-	
-	
+
 }

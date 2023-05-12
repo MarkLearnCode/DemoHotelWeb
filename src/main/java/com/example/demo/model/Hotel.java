@@ -6,13 +6,13 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * The persistent class for the hotel database table.
  * 
  */
 @Entity
-@NamedQuery(name="Hotel.findAll", query="SELECT h FROM Hotel h")
+@Table(name = "hotel")
+@NamedQuery(name = "Hotel.findAll", query = "SELECT h FROM Hotel h")
 public class Hotel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -35,18 +35,18 @@ public class Hotel implements Serializable {
 	private String hotelNo;
 
 	private String phone;
-	
+
 	@Transient
 	private String picPath;
-	
+
 	@Transient
 	private List<String> pics;
 
-	//bi-directional many-to-one association to Roominfo
-	@OneToMany(mappedBy="hotel",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//	@OneToMany(mappedBy = "hotel", fetch = FetchType.EAGER)  //順便抓取roominfos
-//	 @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//	    @JoinColumn(name = "hotelNo", referencedColumnName = "hotelNo")
+	// bi-directional many-to-one association to Roominfo
+	@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	// @OneToMany(mappedBy = "hotel", fetch = FetchType.EAGER) //順便抓取roominfos
+	// @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	// @JoinColumn(name = "hotelNo", referencedColumnName = "hotelNo")
 	private List<Roominfo> roominfos = new ArrayList<>();
 
 	public Hotel() {
@@ -146,8 +146,6 @@ public class Hotel implements Serializable {
 		return roominfo;
 	}
 
-	
-	
 	public String getPicPath() {
 		return picPath;
 	}
@@ -163,5 +161,5 @@ public class Hotel implements Serializable {
 	public void setPics(List<String> pics) {
 		this.pics = pics;
 	}
-	
+
 }

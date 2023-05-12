@@ -7,13 +7,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
-
 /**
  * The persistent class for the webmember database table.
  * 
  */
 @Entity
-@NamedQuery(name="Webmember.findAll", query="SELECT w FROM Webmember w")
+@Table(name = "webmember")
+@NamedQuery(name = "Webmember.findAll", query = "SELECT w FROM Webmember w")
 public class Webmember implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -30,12 +30,12 @@ public class Webmember implements Serializable {
 
 	private String phone;
 
-	//bi-directional many-to-one association to Roomstatus
-	@OneToMany(mappedBy="webmember",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	// bi-directional many-to-one association to Roomstatus
+	@OneToMany(mappedBy = "webmember", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Roomstatus> roomstatuses;
 
-	//bi-directional many-to-one association to Roomorder
-	@OneToMany(mappedBy="webmember",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	// bi-directional many-to-one association to Roomorder
+	@OneToMany(mappedBy = "webmember", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Roomorder> roomorders;
 
 	public Webmember() {
@@ -110,11 +110,12 @@ public class Webmember implements Serializable {
 
 		return roomstatus;
 	}
+
 	@JsonIgnore
 	public List<Roomorder> getRoomorders() {
 		return this.roomorders;
 	}
-	
+
 	public void setRoomorders(List<Roomorder> roomorders) {
 		this.roomorders = roomorders;
 	}
