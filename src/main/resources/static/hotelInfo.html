@@ -386,9 +386,12 @@
               "startDate"
             )}/${endDateVal}`,
             (data) => {
-              sroom.innerText = sroom.innerText + data[0];
-              droom.innerText = droom.innerText + data[1];
-              qroom.innerText = qroom.innerText + data[2];
+              let sString = sroom.innerText + data[0];
+              let dString = droom.innerText + data[1];
+              let qString = qroom.innerText + data[2];
+              sroom.innerText = sString;
+              droom.innerText = dString;
+              qroom.innerText = qString;
               console.log(data);
             }
           );
