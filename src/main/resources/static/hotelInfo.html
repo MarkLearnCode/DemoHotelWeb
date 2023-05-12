@@ -241,17 +241,17 @@
       //   console.log(data);
       // });
 
-      $.get(
-        `/api/takeAvailableRooms/${hotelNo}/${chickInDate}/${chickOutDate}`,
-        (data) => {
-          // console.log(data);
-          // hotel = data;
-          sroom.innerText = sroom.innerText + data[0].roomqty;
-          droom.innerText = droom.innerText + data[1].roomqty;
-          qroom.innerText = qroom.innerText + data[2].roomqty;
-          console.log(data);
-        }
-      );
+      // $.get(
+      //   `/api/takeAvailableRooms/${hotelNo}/${chickInDate}/${chickOutDate}`,
+      //   (data) => {
+      //     // console.log(data);
+      //     // hotel = data;
+      //     sroom.innerText = sroom.innerText + data[0].roomqty;
+      //     droom.innerText = droom.innerText + data[1].roomqty;
+      //     qroom.innerText = qroom.innerText + data[2].roomqty;
+      //     console.log(data);
+      //   }
+      // );
 
       // 改寫中
 
